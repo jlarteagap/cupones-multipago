@@ -1,9 +1,21 @@
-import React from 'react'
+import React from 'react';
+import multipago from '../img/multipago.png'
 
-const Footer = () => { 
+export const Footer = () => { 
     return(
-        <p>Desde Footer</p>
+       
+            <div className="footer px-5">
+
+                <div className="row d-flex justify-content-between align-items-center">
+                    <div className="col-12 col-md-6">
+                        <img className="img-fluid" src={multipago} alt="Multipago" />
+                    </div>
+                    <div className="col-12 col-md-6 text-right text-white">
+                        Multipago © 2020. Todos los derechos reservados.
+                    </div>
+                </div>
+
+            </div>
+     
     )
 }
-
-export default Footer;
