@@ -3,15 +3,24 @@
 
 :root {
     --gren-selected: #51E355;
+    --scanBlue: #196EB1;
+    --scanDark: #1E1F20;
+    --scanGray: #737E8A
 }
+
+@import 'colors';
 
 body{
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
+    color: var(--scanDark);
+    font-size: 15px;
 }
 
-h1, h2, h3{
-    font-family: 'Open Sans Condensed', sans-serif;
+.wrapper__scan{
+    @media (max-width: 768px){
+        padding: 0 !important;
+    }
 }
 
 .enfasis{
@@ -24,6 +33,14 @@ h1, h2, h3{
     max-height: 80px;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 27px;
+
+    @media (max-width: 768px){
+        font-size: 20px;
+
+        img{
+            height: 40px;
+        }
+    }
 } 
 
 /* modificadores*/
@@ -32,9 +49,77 @@ h1, h2, h3{
 
     &--header{
         font-size: 2.62rem;
+
     }
     &--p{
         font-size: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        &--header{
+            font-size: 2rem;
+        }
+        &--p{
+            font-size: 1.6rem;
+        }
+    }
+}
+
+/* fonts */
+
+.font--semibold{ font-weight: 600; }
+
+/* pasos */
+.step {
+    font-size: 30px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 300;
+
+    &--selected{
+        color: var(--gren-selected);
+    }
+    &--badge{
+        background: var(--gren-selected);
+        border-radius: 50%;
+        font-size: 100%;
+        font-weight: 300;
+        width: 45px;
+        height: 45px;
+
+    }
+
+    @media (max-width: 768px){
+        font-size: 1.6rem;
+        
+        &--badge{
+            font-size: 80%;
+            width: 34px;
+            height: 34px;
+    
+        }
+        &--no--selected{
+            display: none;
+        }    
+    }
+
+}
+
+/* Scan QR*/
+.scanQr{
+    height: 330px;
+    width: 330px;
+
+}
+.scan__card{
+    padding-bottom: 2.5rem;
+    &--inner{
+        margin: 0 2.5;
+    }
+    @media (max-width: 768px){
+        padding-top: 2.5rem;
+        &--inner{
+            margin: 0;
+        } 
     }
 }
 
@@ -47,5 +132,16 @@ h1, h2, h3{
     background: #0C3461;
     img {
         max-width: 150px;
+    }
+    @media (max-width: 768px){
+        img{
+            margin: 0 auto;
+            display: block;
+        }
+        .copy{
+            text-align: center !important;
+        }
+        
+        padding: 10px 0;
     }
 }
