@@ -21,7 +21,7 @@ class ScanQr extends Component {
                                         <Link className="btn bg--blue text-white btn-block" to="/">Cancelar</Link>
                                     </div>
                                      <div className="col-6">
-                                        <button className="btn btn-success btn-block">Aceptar</button>
+                                     <Link className="btn btn-success btn-block" to="/seleccionar-delivery">Aceptar</Link>
                                     </div>
                                 </div>
                                

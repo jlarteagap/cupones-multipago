@@ -129,7 +129,10 @@ body{
 }
 
 .footer{
+    bottom: 0;
     background: #0C3461;
+    padding: 10px 0;
+    
     img {
         max-width: 150px;
     }
@@ -141,7 +144,5 @@ body{
         .copy{
             text-align: center !important;
         }
-        
-        padding: 10px 0;
     }
 }

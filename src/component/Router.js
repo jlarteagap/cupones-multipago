@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ScanQr from './scanQR';
 
 import Home from './home';
@@ -15,13 +15,11 @@ import {Footer} from './footer'
 class Router extends Component {
 
     state = {
-        home: true,
         stepOne: false
     }
 
     homeState = () => {
         this.setState({
-            home: false,
             stepOne: true
         })
     }
@@ -33,11 +31,11 @@ class Router extends Component {
                     <div className="row">
                         <div className="col-10 mx-auto col-md-6 text-white">
 
-                            <Link to="/"><img src={ multipagoOferta } className="img-fluid d-block mx-auto" alt="" /></Link>
+                            <img src={ multipagoOferta } className="img-fluid d-block mx-auto" alt="" />
                             
-                            {this.state.home ? (<HomeText homeState = {this.homeState}
+                            {this.state.stepOne ? (<OptionsText />) : (<HomeText homeState = {this.homeState}
                             
-                            />) : (<OptionsText />) }
+                            />) }
                             
                         </div>
                         <Switch>

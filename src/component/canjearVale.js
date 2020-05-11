@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import pedidosYa from '../img/delivery/logo_serv1.png';
-
+import { Link } from 'react-router-dom'
 class SeleccionarDelivery extends Component {
     render(){
         return(
@@ -41,7 +41,17 @@ class SeleccionarDelivery extends Component {
                                     <img className="img-fluid" src={pedidosYa} alt="delivery" />
                                 </div>
                             </div>
-
+                            <div className="col-12 px-0 pt-4">
+                                <div className="row">
+                                    <div className="col-6">
+                                        <Link className="btn bg--blue text-white btn-block" to="/seleccionar-delivery">Cancelar</Link>
+                                    </div>
+                                     <div className="col-6">
+                                     <Link className="btn btn-success btn-block" to="/confirmar-pedido">Aceptar</Link>
+                                    </div>
+                                </div>
+                               
+                            </div>
                         </div>
                     </div>
                 </div>
