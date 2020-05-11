@@ -47,7 +47,7 @@ class SeleccionarDelivery extends Component {
                                         <Link className="btn bg--blue text-white btn-block" to="/seleccionar-delivery">Cancelar</Link>
                                     </div>
                                      <div className="col-6">
-                                     <Link className="btn btn-success btn-block" to="/confirmar-pedido">Aceptar</Link>
+                                     <Link className="btn bg--green text-white btn-block" to="/confirmar-pedido">Continuar</Link>
                                     </div>
                                 </div>
                                

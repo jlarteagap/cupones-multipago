@@ -24,7 +24,7 @@ class ConfirmarPedido extends Component {
                                         <Link className="btn bg--blue text-white btn-block" to="/">Cancelar</Link>
                                     </div>
                                      <div className="col-6">
-                                        <button className="btn btn-success btn-block">Aceptar</button>
+                                        <button className="btn bg--green text-white btn-block">Confirmar</button>
                                     </div>
                                 </div>
                                
