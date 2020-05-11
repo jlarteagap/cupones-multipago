@@ -100,6 +100,7 @@ body{
         font-weight: 300;
         width: 45px;
         height: 45px;
+        margin-top: 10px;
 
         &--On{
             background: var(--scanGreen);
@@ -112,10 +113,10 @@ body{
         font-size: 1.6rem;
         
         &--badge{
-            font-size: 80%;
-            width: 34px;
-            height: 34px;
-    
+            font-size: 70%;
+            width: 28px;
+            height: 28px;
+            margin-top: 10px;
         }
         &--no--selected{
             display: none;
@@ -126,7 +127,7 @@ body{
 
 /* Scan QR*/
 .scanQr{
-    height: 280px;
+    height: 350px;
     width: 280px;
 
 }
@@ -165,4 +166,8 @@ body{
             text-align: center !important;
         }
     }
+}
+
+.card-body h3 {
+    font-family: 'Open Sans Condensed', sans-serif;
 }

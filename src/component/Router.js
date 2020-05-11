@@ -21,11 +21,11 @@ class Router extends Component {
                             <Link to="/">
                                 <img src={ multipagoOferta } className="img-fluid d-block mx-auto" alt="" />
                             </Link>
-                            <OptionsText />
+                            <OptionsText steps = {this.props.steps} />
                         </div>
                         <Switch>
-                            <Route exact path="/" ><ScanQr /></Route>
-                            <Route exact path="/seleccionar-delivery"><SeleccionarDelivery /> </Route>
+                            <Route exact path="/" ><ScanQr stepOne = {this.props.stepOne} /></Route>
+                            <Route exact path="/seleccionar-delivery"><SeleccionarDelivery stepTwo = {this.props.stepTwo} /> </Route>
                             <Route exact path="/confirmar-pedido"><ConfirmarPedido /> </Route>
                         </Switch>
                     </div>

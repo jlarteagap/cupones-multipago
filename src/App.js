@@ -6,19 +6,40 @@ import Home from './component/home'
 class App extends Component {
 
   state = {
-    stepOne: false
+    steps: {
+      home:       false,
+      stepOne:    false,
+      stepTwo:    false,
+      stepThree:  false
+    }
   }
 
   homeState = () => {
-    this.setState({
-        stepOne: true
-    })
-} 
+    this.setState( state => ({
+        steps: { ...state.steps, home: true, stepOne: true }
+    }))
+}
+
+  stepOne = () => {
+    this.setState( state => ({
+      steps: {...state.steps, stepOne: false, stepTwo: true}
+    }))
+  }
+  stepTwo = () => {
+    this.setState( state => ({
+      steps: {...state.steps, stepTwo: false, stepThree: true}
+    }))
+  }
   render(){
     return (
-      <div className={"container-fluid p-0 bg wrapper__scan position-relative " + (this.state.stepOne ? ' ' : 'vh-100')}>
+      <div className={"container-fluid p-0 bg wrapper__scan position-relative " + (this.state.steps.home ? ' ' : 'vh-100')}>
         <main className="">
-          {this.state.stepOne ? (<Router />) : (<Home homeState = {this.homeState} />)}
+          {this.state.steps.home ? (
+            <Router 
+              steps = {this.state.steps}
+              stepOne = {this.stepOne}
+              stepTwo = {this.stepTwo}
+            />) : (<Home homeState = {this.homeState} />)}
         </main>
       </div>
     );

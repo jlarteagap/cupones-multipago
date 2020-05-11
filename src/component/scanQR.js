@@ -8,20 +8,17 @@ class ScanQr extends Component {
                 <div className="card scan__card--inner">
                     <div className="card-body">
                         <div className="card border-primary mb-4">
-                            <div className="card-body scanQr py-4 mx-auto"></div>
-                            <div className="card-footer bg--blue text-center text-white">
+                            <div className="card-body scanQr py-5 mx-auto"></div>
+                            {/* <div className="card-footer bg--blue text-center text-white">
                                 Adjuntar QR
-                            </div>
+                            </div> */}
                         </div>
                         <form className="form-group mb-0">
                             <input className="form-control" type="text" placeholder="Código del vale" />
                             <div className="col-12 px-0 pt-4">
                                 <div className="row">
-                                    <div className="col-6">
-                                        <Link className="btn bg--blue text-white btn-block" to="/">Cancelar</Link>
-                                    </div>
-                                     <div className="col-6">
-                                     <Link className="btn bg--green text-white btn-block" to="/seleccionar-delivery">Continuar</Link>
+                                    <div className="col-12">
+                                     <Link className="btn bg--green btn-block text-white btn-block" to="/seleccionar-delivery" onClick={ () => this.props.stepOne()} >Continuar</Link>
                                     </div>
                                 </div>
                                
