@@ -9,11 +9,16 @@ class App extends Component {
     stepOne: false
   }
 
+  homeState = () => {
+    this.setState({
+        stepOne: true
+    })
+} 
   render(){
     return (
-      <div className="container-fluid bg wrapper__scan position-relative vh-100">
+      <div className={"container-fluid p-0 bg wrapper__scan position-relative " + (this.state.stepOne ? ' ' : 'vh-100')}>
         <main className="">
-          {this.state.stepOne ? (<Router />) : (<Home />)}
+          {this.state.stepOne ? (<Router />) : (<Home homeState = {this.homeState} />)}
         </main>
       </div>
     );

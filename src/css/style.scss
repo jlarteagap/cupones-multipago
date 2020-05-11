@@ -96,13 +96,16 @@ body{
         color: var(--scanGreen);
     }
     &--badge{
-        background: var(--scanGreen);
-        border-radius: 50%;
         font-size: 100%;
         font-weight: 300;
         width: 45px;
         height: 45px;
 
+        &--On{
+            background: var(--scanGreen);
+            border-radius: 50%;
+            color: white;
+        }
     }
 
     @media (max-width: 768px){
