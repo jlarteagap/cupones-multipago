@@ -44,7 +44,7 @@ class SeleccionarDelivery extends Component {
                             <div className="col-12 px-0 pt-4">
                                 <div className="row">
                                     <div className="col-6">
-                                        <Link className="btn bg--blue text-white btn-block" to="/seleccionar-delivery">Volver</Link>
+                                        <Link className="btn bg--blue text-white btn-block" to="/">Volver</Link>
                                     </div>
                                      <div className="col-6">
                                      <Link className="btn bg--green text-white btn-block" to="/confirmar-pedido" onClick={ () => this.props.stepTwo()}>Continuar</Link>
