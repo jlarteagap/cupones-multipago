@@ -10,8 +10,9 @@ class App extends Component {
       home:       false,
       stepOne:    false,
       stepTwo:    false,
-      stepThree:  false
-    }
+      stepThree:  false,
+    },
+    data: ''
   }
 
   homeState = () => {
@@ -20,16 +21,30 @@ class App extends Component {
     }))
 }
 
-  stepOne = () => {
-    this.setState( state => ({
-      steps: {...state.steps, stepOne: false, stepTwo: true}
-    }))
-  }
   stepTwo = () => {
     this.setState( state => ({
-      steps: {...state.steps, stepTwo: false, stepThree: true}
+      steps: {...state.steps, stepOne: false, stepTwo: true, stepThree: false}
     }))
   }
+  stepThree = () => {
+    this.setState( state => ({
+      steps: {...state.steps, stepOne: false, stepTwo: false, stepThree: true}
+    }))
+  }
+  clickReset = () => {
+    this.setState( state => ({
+      
+      steps: {home: true, stepOne: true, stepTwo: false, stepThree: false}
+    }))
+  }
+
+  codeScaner = (data) => {
+    this.setState( state => ({
+      steps: { ...state.steps, stepOne: false, stepTwo: true},
+      data: data
+    }))
+  }
+
   render(){
     return (
       <div className={"container-fluid p-0 bg wrapper__scan position-relative " + (this.state.steps.home ? ' ' : 'vh-100')}>
@@ -37,8 +52,10 @@ class App extends Component {
           {this.state.steps.home ? (
             <Router 
               steps = {this.state.steps}
-              stepOne = {this.stepOne}
               stepTwo = {this.stepTwo}
+              stepThree = {this.stepThree}
+              clickReset = {this.clickReset}
+              codeScaner = {this.codeScaner}
             />) : (<Home homeState = {this.homeState} />)}
         </main>
       </div>

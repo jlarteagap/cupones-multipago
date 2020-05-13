@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import ScanQr from './scanQR';
 
+import ScanQr from './scanQR';
 import ConfirmarPedido from './confirmar';
 import SeleccionarDelivery from './canjearVale';
 
@@ -10,6 +10,7 @@ import OptionsText from './Optionstext';
 import multipagoOferta from '../img/logo__oferta.png';
 
 import {Footer} from './footer'
+import SendMail from './enviado';
 class Router extends Component {
 
     render() {
@@ -18,15 +19,26 @@ class Router extends Component {
                 <div className="col-12 col-md-10 mx-auto pt-5">
                     <div className="row">
                         <div className="col-10 mx-auto col-md-6 text-white">
-                            <Link to="/">
+                            <Link to="/" onClick={ () => this.props.clickReset() }>
                                 <img src={ multipagoOferta } className="img-fluid d-block mx-auto" alt="" />
                             </Link>
                             <OptionsText steps = {this.props.steps} />
                         </div>
                         <Switch>
-                            <Route exact path="/" ><ScanQr stepOne = {this.props.stepOne} /></Route>
-                            <Route exact path="/seleccionar-delivery"><SeleccionarDelivery stepTwo = {this.props.stepTwo} /> </Route>
-                            <Route exact path="/confirmar-pedido"><ConfirmarPedido /> </Route>
+                            <Route exact path="/" >
+                                <ScanQr codeScaner = {this.props.codeScaner}  /></Route>
+                            <Route exact path="/seleccionar-delivery">
+                                <SeleccionarDelivery 
+                                stepThree = {this.props.stepThree}
+                                clickReset = {this.props.clickReset} /> </Route>
+                            <Route exact path="/confirmar-pedido">
+                                <ConfirmarPedido 
+                                stepTwo = {this.props.stepTwo}
+                                stepThree = {this.props.stepThree}/> 
+                            </Route>
+                            <Route exact path="/enviado">
+                                <SendMail/>
+                            </Route>
                         </Switch>
                     </div>
                 </div>

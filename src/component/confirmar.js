@@ -10,8 +10,8 @@ class ConfirmarPedido extends Component {
                     <div className="card-body">
                         <div className="text-center">
                             <h3 className="text-uppercase font-weight-bold">Confirmación de canje</h3>
-                            <div className="col-6 col-md-3 mx-auto py-5">
-                                <img src={pedidosYa} alt="" />
+                            <div className="col-6 col-md-5 mx-auto py-5">
+                                <img className="img-fluid" src={pedidosYa} alt="" />
                             </div>
                             <p className="font--semibold">Iniciará tu proceso de solicitud para el uso de tu vale de consumo por el monto de:</p>
                             <h4 className="coBlue py-3">Bs. 100.00</h4>
@@ -21,10 +21,10 @@ class ConfirmarPedido extends Component {
                             <div className="col-12 px-0 pt-4">
                                 <div className="row">
                                     <div className="col-6">
-                                        <Link className="btn bg--blue text-white btn-block" to="/">Cancelar</Link>
+                                        <Link className="btn bg--blue text-white btn-block" to="/seleccionar-delivery" onClick={ () => this.props.stepTwo()}>Cancelar</Link>
                                     </div>
                                      <div className="col-6">
-                                        <button className="btn bg--green text-white btn-block">Confirmar</button>
+                                        <Link to="/enviado" className="btn bg--green text-white btn-block">Confirmar</Link>
                                     </div>
                                 </div>
                                

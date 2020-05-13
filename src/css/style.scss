@@ -111,6 +111,7 @@ body{
 
     @media (max-width: 768px){
         font-size: 1.6rem;
+        display: none;
         
         &--badge{
             font-size: 70%;
@@ -118,9 +119,9 @@ body{
             height: 28px;
             margin-top: 10px;
         }
-        &--no--selected{
-            display: none;
-        }    
+        &--selected{
+            display: block;
+        }
     }
 
 }

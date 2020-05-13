@@ -43,11 +43,11 @@ class SeleccionarDelivery extends Component {
                             </div>
                             <div className="col-12 px-0 pt-4">
                                 <div className="row">
-                                    <div className="col-6">
-                                        <Link className="btn bg--blue text-white btn-block" to="/">Volver</Link>
+                                    <div className="col-6 pl-0">
+                                        <Link className="btn bg--blue text-white btn-block" to="/" onClick={ () => this.props.clickReset()}>Volver</Link>
                                     </div>
-                                     <div className="col-6">
-                                     <Link className="btn bg--green text-white btn-block" to="/confirmar-pedido" onClick={ () => this.props.stepTwo()}>Continuar</Link>
+                                     <div className="col-6 pr-0">
+                                     <Link className="btn bg--green text-white btn-block" to="/confirmar-pedido" onClick={ () => this.props.stepThree()}>Continuar</Link>
                                     </div>
                                 </div>
                                
