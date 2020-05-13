@@ -39,6 +39,9 @@ class ScanQr extends Component {
           })
         }
       }
+      ScanError = err => {
+        console.error(err)
+      }
     render(){
         return(
             <div className="col-12 col-md-6 scan__card">
@@ -48,8 +51,9 @@ class ScanQr extends Component {
                             
                             <QrReader 
                                 delay = {300}
+                                onError={this.ScanError}
                                 onScan = {this.QrScanner}
-                                className = {ScanQr}
+                                className = 'ScanQr'
                             />
                             {/* <div className="card-footer bg--blue text-center text-white">
                                 Adjuntar QR
