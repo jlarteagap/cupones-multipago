@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 
 import Router from './component/Router';
 
@@ -38,11 +39,14 @@ class App extends Component {
     }))
   }
 
-  codeScaner = (data) => {
-    this.setState( state => ({
-      steps: { ...state.steps, stepOne: false, stepTwo: true},
-      data: data
-    }))
+  codeScaner = async(codeQr) => {
+    
+    const url = 'https://stagingmultipago.ticketeg.com/api/v2/coupon-api/getDataServiceDelivery'
+
+    await axios.post(url, codeQr)
+      .then(res => {
+        console.log(res)
+      })
   }
 
   render(){

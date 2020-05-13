@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import pedidosYa from '../img/delivery/logo_serv1.png';
 import { Link } from 'react-router-dom'
 class SeleccionarDelivery extends Component {
+
+    state = {
+        value: ''
+    }
+
+    checkDelivery = (value) => {
+        this.setState({
+            value
+        })
+    }
+    
     render(){
         return(
             <div className="col-12 col-md-6 scan__card">
@@ -25,21 +36,22 @@ class SeleccionarDelivery extends Component {
                             <div className="col-12">
                                 <div className="row">
                                     <p className="font-weight-bold p-0 col-12">Selecciona el servicio de DELIVERY a utilizar</p>
-                                <div className="col-6 col-md-3 px-1 pt-3">
-                                    <img className="img-fluid" src={pedidosYa} alt="delivery" />
-                                </div>
-                                <div className="col-6 col-md-3 px-1 pt-3">
-                                    <img className="img-fluid" src={pedidosYa} alt="delivery" />
-                                </div>
-                                <div className="col-6 col-md-3 px-1 pt-3">
-                                    <img className="img-fluid" src={pedidosYa} alt="delivery" />
-                                </div>
-                                <div className="col-6 col-md-3 px-1 pt-3">
-                                    <img className="img-fluid" src={pedidosYa} alt="delivery" />
-                                </div>
-                                <div className="col-6 col-md-3 px-1 pt-3">
-                                    <img className="img-fluid" src={pedidosYa} alt="delivery" />
-                                </div>
+                                    <div className="col-6 col-md-3 px-1 pt-3">
+                                        <button className="btn delivery__btn" onClick={ () => this.checkDelivery('value1')}><img className="img-fluid" src={pedidosYa} alt="delivery" /></button>
+                                    </div>
+                                    <div className="col-6 col-md-3 px-1 pt-3">
+                                        <button className="btn delivery__btn" onClick={ () => this.checkDelivery('value2')}><img className="img-fluid img--check" src={pedidosYa} alt="delivery" /></button>
+                                    </div>
+                                    <div className="col-6 col-md-3 px-1 pt-3">
+                                        <button className="btn delivery__btn" onClick={ () => this.checkDelivery('value3')}><img className="img-fluid img--check" src={pedidosYa} alt="delivery"/></button>
+                                    </div>
+                                    <div className="col-6 col-md-3 px-1 pt-3">
+                                        <button className="btn delivery__btn" onClick={ () => this.checkDelivery('value4')}><img className="img-fluid img--check" src={pedidosYa} alt="delivery" /></button>
+                                    </div>
+                                    <div className="col-6 col-md-3 px-1 pt-3">
+                                        <button className="btn delivery__btn" onClick={ () => this.checkDelivery('value5')}><img className="img-fluid img--check" src={pedidosYa} alt="delivery" /></button>
+                                    </div>
+
                             </div>
                             <div className="col-12 px-0 pt-4">
                                 <div className="row">

@@ -21,7 +21,7 @@ class ConfirmarPedido extends Component {
                             <div className="col-12 px-0 pt-4">
                                 <div className="row">
                                     <div className="col-6">
-                                        <Link className="btn bg--blue text-white btn-block" to="/seleccionar-delivery" onClick={ () => this.props.stepTwo()}>Cancelar</Link>
+                                        <Link className="btn bg--blue text-white btn-block" to="/seleccionar-delivery" onClick={ () => this.props.stepTwo()}>Volver</Link>
                                     </div>
                                      <div className="col-6">
                                         <Link to="/enviado" className="btn bg--green text-white btn-block">Confirmar</Link>

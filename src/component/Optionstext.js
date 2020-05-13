@@ -9,14 +9,14 @@ class OptionsText extends Component {
         return(
             <React.Fragment>
                 <div className={"step mt-5" + (stepOne ? (' step--selected') : ('') )} >
-                    <div className="row">
+                    <div className="row align-items-center">
                         <span className={"col-1 badge step--badge" + (stepOne ? (' step--badge--On') : ('') )}>1. </span>
                         <div className="col-9">Escanea tu QR o ingresa el código PIN de tu Vale</div>
                         <span className="col-2"><img className={(stepTwo || stepThree ? ('d-block') : ('d-none'))} src={check} alt="" /></span>
                     </div>
                 </div>
                 <div className={"step my-3" + (stepTwo ? (' step--selected') : ('') )}>
-                    <div className="row">
+                    <div className="row align-items-center">
                         <span className={"col-1 badge step--badge" + (stepTwo ? (' step--badge--On') : ('') )}>2. </span>
                         <div className="col-9">Selecciona el servicio de DELIVERY de tu preferencia</div>
                         <span className="col-2"><img className={(stepThree ? ('d-block') : ('d-none'))}src={check} alt="" /></span>
