@@ -33,12 +33,29 @@ class Router extends Component {
                                 clickReset = {this.props.clickReset} 
                                 client = {this.props.client}
                                 deliverys = {this.props.deliverys}
+                                checkDelivery = {this.props.checkDelivery}
                                 /> </Route>
-                            <Route exact path="/confirmar-pedido">
-                                <ConfirmarPedido 
-                                stepTwo = {this.props.stepTwo}
-                                stepThree = {this.props.stepThree}/> 
-                            </Route>
+                            <Route exact path="/confirmar-pedido" render={ () => {
+                                let idDelivery = this.props.delivery
+                                
+                                const deliverys = this.props.deliverys;
+                                
+                                let filtro;
+
+                                // eslint-disable-next-line eqeqeq
+                                filtro = deliverys.filter(delivery => (delivery.id === Number(idDelivery)))
+
+                                return(
+                                    <ConfirmarPedido 
+                                    delivery = {filtro[0]}
+                                    client = {this.props.client}
+                                    stepTwo = {this.props.stepTwo}
+                                    stepThree = {this.props.stepThree}
+                                    orderConfirm = {this.props.orderConfirm}
+                                    />
+                                )
+                            }} />
+                                
                             <Route exact path="/enviado">
                                 <SendMail/>
                             </Route>

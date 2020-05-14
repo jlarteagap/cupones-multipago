@@ -98,8 +98,8 @@ body{
     &--badge{
         font-size: 100%;
         font-weight: 300;
-        width: 45px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
 
         &--On{
             background: var(--scanGreen);
@@ -128,6 +128,11 @@ body{
 /* Scan QR*/
 .scanQr{
     height: 450px;
+}
+.scanError{
+    font-size: 13px;
+    padding-top: 10px;
+    color: #FE4444
 }
 .scan__card{
     padding-bottom: 2.5rem;

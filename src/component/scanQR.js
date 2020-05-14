@@ -7,11 +7,11 @@ class ScanQr extends Component {
         inputData: '',
         error: false
     }
-    
+     /* formulario del scanner */ 
     inputScan = e => {
         this.setState({inputData: e.target.value})
     }
-
+    /* enviar datos via post*/ 
     codeScan = e => {      
         e.preventDefault();
         const {inputData} = this.state
@@ -32,6 +32,7 @@ class ScanQr extends Component {
         this.props.history.push("/seleccionar-delivery");
     }
 
+      /* Scanner */ 
     QrScanner = data => {
         if (data) {
           this.setState({
@@ -42,6 +43,8 @@ class ScanQr extends Component {
       ScanError = err => {
         console.error(err)
       }
+
+
     render(){
         return(
             <div className="col-12 col-md-6 scan__card">
@@ -68,7 +71,7 @@ class ScanQr extends Component {
                                         <button type="submit" className="btn bg--green btn-block text-white btn-block">
                                             Continuar
                                         </button>
-                                        {this.state.error ? (<div className="alert alert-danger text-center mt-2">Ingrese un código valido</div>) : ('')}
+                                        {this.state.error ? (<div className="scanError">Ingrese un código valido</div>) : ('')}
 
                                     </div>
                                 </div>

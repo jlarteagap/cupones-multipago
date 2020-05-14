@@ -12,9 +12,11 @@ class App extends Component {
       stepOne:    false,
       stepTwo:    false,
       stepThree:  false,
+      confirm:    false
     },
     client: {},
-    deliverys: []
+    deliverys: [],
+    delivery: ''
   }
 
   homeState = () => {
@@ -44,31 +46,53 @@ class App extends Component {
     
     const url = 'https://stagingmultipago.ticketeg.com/api/v2/coupon-api/getDataServiceDelivery'
 
-    console.log(codeQr)
-    
     axios.post(url, {qr_code: codeQr})
       .then(res => {
         this.setState( state =>({
-          steps: {...state.steps, stepTwo: true},
+          steps: {...state.steps, stepTwo: true, stepOne: false},
           client: res.data.data.info,
           deliverys: res.data.data.deliverys
         }))
       })
   }
 
+  orderConfirm = (data) => {
+    this.setState( state => ({
+      steps: {...state.steps, stepThree: false, confirm: true}
+    }))
+
+    const url =  'https://stagingmultipago.ticketeg.com/api/v2/coupon-api/createCouponExchange'
+
+    axios.post(url, data)
+      .then(res => {
+        this.setState( state => ({
+          steps: {...state.steps, stepThree: false, confirm: true}
+        }))
+      })
+  }
+
+  checkDelivery = (id) => {
+    this.setState({
+      delivery: id
+    })
+  }
+
   render(){
     return (
-      <div className={"container-fluid p-0 bg wrapper__scan position-relative " + (this.state.steps.home ? ' ' : 'vh-100')}>
+      <div className={"container-fluid p-0 bg wrapper__scan min-vh-100 position-relative " + (this.state.steps.home ? ' ' : 'vh-100')}>
         <main className="">
           {this.state.steps.home ? (
             <Router 
               steps = {this.state.steps}
               client = {this.state.client}
               deliverys = {this.state.deliverys}
+              delivery = {this.state.delivery}
               stepTwo = {this.stepTwo}
               stepThree = {this.stepThree}
               clickReset = {this.clickReset}
               codeScaner = {this.codeScaner}
+              checkDelivery = {this.checkDelivery}
+              orderConfirm = {this.orderConfirm}
             />) : (<Home homeState = {this.homeState} />)}
         </main>
       </div>

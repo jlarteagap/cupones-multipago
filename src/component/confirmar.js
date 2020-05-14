@@ -1,9 +1,30 @@
 import React, { Component } from 'react';
-import pedidosYa from '../img/delivery/logo_serv1.png';
+import { withRouter } from 'react-router-dom';
 
 import { Link } from 'react-router-dom';
 class ConfirmarPedido extends Component {
-    render(){
+
+    order = id => {
+        const {ticket_id, service_id, pay_order_id} = this.props.client;
+
+        const order = {
+            ticket_id,
+            service_id,
+            delivery_id: id,
+            pay_order_id,
+            
+        }
+
+        this.props.orderConfirm(order)
+        this.props.history.push("/enviado");
+    }
+
+    confirmarPedido = () =>{
+        if(!this.props.delivery) return null
+
+        const {id, image, name} = this.props.delivery;
+        const {unit_price} = this.props.client;
+
         return(
             <div className="col-12 col-md-6 scan__card">  
                 <div className="card scan__card--inner">
@@ -11,11 +32,11 @@ class ConfirmarPedido extends Component {
                         <div className="text-center">
                             <h3 className="text-uppercase font-weight-bold">Confirmación de canje</h3>
                             <div className="col-6 col-md-5 mx-auto py-5">
-                                <img className="img-fluid" src={pedidosYa} alt="" />
+                                <img className="img-fluid" src={image} alt="" />
                             </div>
                             <p className="font--semibold">Iniciará tu proceso de solicitud para el uso de tu vale de consumo por el monto de:</p>
-                            <h4 className="coBlue py-3">Bs. 100.00</h4>
-                            <p>Al confirmar tu solicitud, <strong>PEDIDOS YA</strong> te enviará el código correspondiente para que empieces a realizar tu pedido mediante su plataforma.</p>
+                            <h4 className="coBlue py-3">{unit_price}</h4>
+                            <p>Al confirmar tu solicitud, <strong>{name}</strong> te enviará el código correspondiente para que empieces a realizar tu pedido mediante su plataforma.</p>
                             <p><strong>Nota importante:</strong> El vale de consumo de multipago oferta es único, una vez realizada la confirmación quedará deshabilitado.</p>
 
                             <div className="col-12 px-0 pt-4">
@@ -24,7 +45,7 @@ class ConfirmarPedido extends Component {
                                         <Link className="btn bg--blue text-white btn-block" to="/seleccionar-delivery" onClick={ () => this.props.stepTwo()}>Volver</Link>
                                     </div>
                                      <div className="col-6">
-                                        <Link to="/enviado" className="btn bg--green text-white btn-block">Confirmar</Link>
+                                        <button className="btn bg--green text-white btn-block" onClick={() => this.order(id)}>Confirmar</button>
                                     </div>
                                 </div>
                                
@@ -35,6 +56,16 @@ class ConfirmarPedido extends Component {
         </div>
         )
     }
+
+
+    render(){
+        
+        return(
+            <React.Fragment>
+                {this.confirmarPedido()}
+            </React.Fragment>
+        )
+    }
 }
 
-export default ConfirmarPedido;
+export default withRouter(ConfirmarPedido);
