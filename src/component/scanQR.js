@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import QrReader from 'react-qr-reader';
+import QrReader from 'react-qr-scanner'
 
 class ScanQr extends Component {
     state = {
@@ -46,15 +46,15 @@ class ScanQr extends Component {
         return(
             <div className="col-12 col-md-6 scan__card">
                 <div className="card scan__card--inner">
-                    <div className="card-body">
+                    <div className="card-body my-5">
                         <div className="card border-primary mb-4">
                             
                             <QrReader 
-                                delay = {300}
+                                delay = {500}
                                 onError={this.ScanError}
                                 onScan = {this.QrScanner}
-                                className = 'ScanQr'
-                                legacyMode = {true}
+                                className = 'card-body py-5 mx-auto'
+                                style={{ width: '100%' }}
                             />
                             {/* <div className="card-footer bg--blue text-center text-white">
                                 Adjuntar QR
