@@ -12,8 +12,12 @@ class SeleccionarDelivery extends Component {
             value
         })
     }
+
     
     render(){
+        const {client, client_email, service, unit_price} = this.props.client;
+        const hola = this.props.deliverys[{}]
+        console.log(hola)
         return(
             <div className="col-12 col-md-6 scan__card">
                 <div className="card scan__card--inner">
@@ -21,23 +25,23 @@ class SeleccionarDelivery extends Component {
                         <h3 className="text-uppercase text-center font-weight-bold">Vale de consumo Válido</h3>
                         <div className="row py-4">
                             <div className="col-4 font--semibold">
-                                <p>Nombre: <br />
+                                <p>Nombre:<br />
                                 Correo:<br />
                                 Comercio: <br />
                                 Monto del vale (Bs.):</p>
                             </div>
                             <div className="col-8">
-                                <p className="coGray">Nombre del cliente asignado el vale<br />
-                                Correo del cliente<br />
-                                Nombre del comercio <br />
-                                <span className="coBlue font--semibold">100.00</span> </p>
+                                <p className="coGray">{client}<br />
+                                {client_email}<br />
+                                {service} <br />
+                                <span className="coBlue font--semibold">{unit_price}</span> </p>
                             </div>
                         </div>
                             <div className="col-12">
                                 <div className="row">
                                     <p className="font-weight-bold p-0 col-12">Selecciona el servicio de DELIVERY a utilizar</p>
                                     <div className="col-6 col-md-3 px-1 pt-3">
-                                        <button className="btn delivery__btn" onClick={ () => this.checkDelivery('value1')}><img className="img-fluid" src={pedidosYa} alt="delivery" /></button>
+                                        <button className="btn delivery__btn" onClick={ () => this.checkDelivery()}><img className="img-fluid" src={pedidosYa} alt="delivery" /></button>
                                     </div>
                                     <div className="col-6 col-md-3 px-1 pt-3">
                                         <button className="btn delivery__btn" onClick={ () => this.checkDelivery('value2')}><img className="img-fluid img--check" src={pedidosYa} alt="delivery" /></button>

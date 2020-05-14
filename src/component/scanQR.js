@@ -54,6 +54,7 @@ class ScanQr extends Component {
                                 onError={this.ScanError}
                                 onScan = {this.QrScanner}
                                 className = 'ScanQr'
+                                legacyMode = {true}
                             />
                             {/* <div className="card-footer bg--blue text-center text-white">
                                 Adjuntar QR
@@ -68,7 +69,7 @@ class ScanQr extends Component {
                                             Continuar
                                         </button>
                                         {this.state.error ? (<div className="alert alert-danger text-center mt-2">Ingrese un código valido</div>) : ('')}
-                                     {/* <Link className="btn bg--green btn-block text-white btn-block" to="/seleccionar-delivery" onClick={ () => this.props.stepOne()} >Continuar</Link> */}
+
                                     </div>
                                 </div>
                                

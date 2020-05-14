@@ -30,7 +30,10 @@ class Router extends Component {
                             <Route exact path="/seleccionar-delivery">
                                 <SeleccionarDelivery 
                                 stepThree = {this.props.stepThree}
-                                clickReset = {this.props.clickReset} /> </Route>
+                                clickReset = {this.props.clickReset} 
+                                client = {this.props.client}
+                                deliverys = {this.props.deliverys}
+                                /> </Route>
                             <Route exact path="/confirmar-pedido">
                                 <ConfirmarPedido 
                                 stepTwo = {this.props.stepTwo}
