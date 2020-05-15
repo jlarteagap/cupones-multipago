@@ -17,6 +17,7 @@ class SeleccionarDelivery extends Component {
         if (status === "OK") {
             return(
                 <React.Fragment>
+                    <div className="card-body scan__card--inner">
                         <h3 className="text-uppercase text-center font-weight-bold">Vale de consumo Válido</h3>
                         <div className="row pt-4">
                             <div className="col-4 font--semibold">
@@ -35,7 +36,7 @@ class SeleccionarDelivery extends Component {
                             <div className="col-12 mt-1">
                                 <div className="row">
                                     <p className="font-weight-bold p-0 col-12">Selecciona el servicio de DELIVERY a utilizar</p>
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <div class="d-flex justify-content-center py-3 col-12">
   
                                             {Object.keys(deliverys).map(delivery => (
                                                 <Delivery
@@ -58,23 +59,28 @@ class SeleccionarDelivery extends Component {
                                
                             </div>
                         </div>
+                        </div>
                 </React.Fragment>
             )
         } else{
             return(
                 <React.Fragment>
-                    <h3 className="text-uppercase text-center font-weight-bold">Vale de consumo Inválido</h3>
-                    <p className="font--semibold text-center">El código del vale de consumo no es válido o se encuentra deshabilitado porque ya ha sido utilizado.</p>
-                    <p className="text-center">Si necesitas ayuda o consulta sobre el servicio no dudes en contactarnos, estaremos gustosos de atenderte.</p>
+                    <div className="card-body scan__card--inner d-flex align-items-center">
+                        <div className="">
+                            <h3 className="text-uppercase text-center font-weight-bold">Vale de consumo Inválido</h3>
+                            <p className="font--semibold text-center">El código del vale de consumo no es válido o se encuentra deshabilitado porque ya ha sido utilizado.</p>
+                            <p className="text-center">Si necesitas ayuda o consulta sobre el servicio no dudes en contactarnos, estaremos gustosos de atenderte.</p>
 
-                    <div className="col-12 px-0 pt-4">
+                            <div className="col-12 px-0 pt-4">
                                 <div className="row">
                                     <div className="col-12">
-                                     <Link className="btn bg--green text-white btn-block" to="/" >Escanear QR</Link>
+                                        <Link className="btn bg--green text-white btn-block" to="/" >Escanear QR</Link>
                                     </div>
                                 </div>
-                               
+                                    
                             </div>
+                        </div>
+                    </div>
                 </React.Fragment>
             )
         }
@@ -86,9 +92,9 @@ class SeleccionarDelivery extends Component {
         return(
             <div className="col-12 col-md-6 scan__card">
                 <div className="card">
-                    <div className="card-body scan__card--inner">
+                    
                         {this.dataClient()}
-                    </div>
+
                 </div>
             </div>
         )
