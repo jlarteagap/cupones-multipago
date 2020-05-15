@@ -18,7 +18,7 @@ class Router extends Component {
             <BrowserRouter>
                 <div className="col-12 col-md-10 mx-auto pt-5">
                     <div className="row">
-                        <div className="col-10 mx-auto col-md-6 text-white">
+                        <div className="col-10 mx-auto col-md-6 text-white p-0">
                             <Link to="/" onClick={ () => this.props.clickReset() }>
                                 <img src={ multipagoOferta } className="img-fluid d-block mx-auto" alt="" />
                             </Link>
@@ -33,6 +33,7 @@ class Router extends Component {
                                 clickReset = {this.props.clickReset} 
                                 client = {this.props.client}
                                 deliverys = {this.props.deliverys}
+                                delivery = {this.props.delivery}
                                 status = {this.props.status}
                                 checkDelivery = {this.props.checkDelivery}
                                 /> </Route>
@@ -58,7 +59,9 @@ class Router extends Component {
                             }} />
                                 
                             <Route exact path="/enviado">
-                                <SendMail/>
+                                <SendMail
+                                    clickReset = {this.props.clickReset} 
+                                />
                             </Route>
                         </Switch>
                     </div>

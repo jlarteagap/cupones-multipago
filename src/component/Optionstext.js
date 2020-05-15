@@ -11,21 +11,21 @@ class OptionsText extends Component {
                 <div className={"step mt-5" + (stepOne ? (' step--selected') : ('') )} >
                     <div className="row align-items-center">
                         <span className={"col-1 badge step--badge" + (stepOne ? (' step--badge--On') : ('') )}>1. </span>
-                        <div className="col-11 col-md-9">Escanea tu QR o ingresa el código PIN de tu Vale</div>
+                        <div className="col-11 col-md-9 pr-0">Escanea tu QR o ingresa el código PIN de tu Vale</div>
                         <span className="col-2"><img className={(stepTwo || stepThree ? ('d-block') : ('d-none'))} src={check} alt="" /></span>
                     </div>
                 </div>
                 <div className={"step my-3" + (stepTwo ? (' step--selected') : ('') )}>
                     <div className="row align-items-center">
                         <span className={"col-1 badge step--badge" + (stepTwo ? (' step--badge--On') : ('') )}>2. </span>
-                        <div className="col-11 col-md-9">Selecciona el servicio de DELIVERY de tu preferencia</div>
+                        <div className="col-11 col-md-9 pr-0">Selecciona el servicio de DELIVERY de tu preferencia</div>
                         <span className="col-2"><img className={(stepThree ? ('d-block') : ('d-none'))}src={check} alt="" /></span>
                     </div>
                 </div>
                 <div className={"step my-3 step3" + (stepThree ? (' step--selected') : ('') )}>
                     <div className="row">
                         <span className={"col-1 badge step--badge" + (stepThree ? (' step--badge--On') : ('') )}>3. </span>
-                        <div className="col-11 col-md-9">Confirma el canje de tu vale</div>
+                        <div className="col-11 col-md-9 pr-0">Confirma el canje de tu vale</div>
                         <span className="col-2"><img className={(confirm ? ('d-block') : ('d-none'))} src={check} alt="" /></span>
                     </div>
                 </div>

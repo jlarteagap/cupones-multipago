@@ -5,7 +5,15 @@ import Delivery from './delivery';
 class SeleccionarDelivery extends Component {
 
     state = {
-        value: ''
+        value: false
+    }
+
+    deliveryState = () => {
+  
+
+        
+            console.log(this.props.delivery)
+
     }
 
     dataClient = () => {
@@ -13,11 +21,12 @@ class SeleccionarDelivery extends Component {
         const {client, client_email, service, unit_price} = this.props.client;
         const deliverys = this.props.deliverys
 
+
         if (status === "OK") {
             return(
                 <React.Fragment>
                         <h3 className="text-uppercase text-center font-weight-bold">Vale de consumo Válido</h3>
-                        <div className="row py-4">
+                        <div className="row pt-4">
                             <div className="col-4 font--semibold">
                                 <p>Nombre: </p>
                                 <p>Correo:</p>
@@ -31,7 +40,7 @@ class SeleccionarDelivery extends Component {
                                 <p className="coBlue font--semibold">{unit_price} </p>
                             </div>
                         </div>
-                            <div className="col-12">
+                            <div className="col-12 mt-1">
                                 <div className="row">
                                     <p className="font-weight-bold p-0 col-12">Selecciona el servicio de DELIVERY a utilizar</p>
                                     <div className="d-flex justify-content-center py-3">
@@ -59,7 +68,7 @@ class SeleccionarDelivery extends Component {
                         </div>
                 </React.Fragment>
             )
-        } else {
+        } else{
             return(
                 <React.Fragment>
                     <h3 className="text-uppercase text-center font-weight-bold">Vale de consumo Inválido</h3>

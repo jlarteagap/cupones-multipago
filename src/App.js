@@ -39,7 +39,7 @@ class App extends Component {
   clickReset = () => {
     this.setState( state => ({
       
-      steps: {home: true, stepOne: true, stepTwo: false, stepThree: false}
+      steps: {home: true, stepOne: true, stepTwo: false, stepThree: false, confirm: false}
     }))
   }
 

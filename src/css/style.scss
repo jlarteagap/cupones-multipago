@@ -98,8 +98,8 @@ body{
     &--badge{
         font-size: 100%;
         font-weight: 300;
-        width: 50px;
-        height: 50px;
+        width: 50px !important;
+        height: 50px !important;
 
         &--On{
             background: var(--scanGreen);
@@ -114,8 +114,8 @@ body{
         
         &--badge{
             font-size: 70%;
-            width: 28px;
-            height: 28px;
+            width: 28px !important;
+            height: 28px !important;
             margin-top: 10px;
         }
         &--selected{
@@ -127,7 +127,8 @@ body{
 
 /* Scan QR*/
 .scanQr{
-    height: 550px;
+    width: 100%;
+    min-height: 300px;
 }
 .scanError{
     font-size: 13px;

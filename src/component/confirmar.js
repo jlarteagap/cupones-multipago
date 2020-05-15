@@ -31,12 +31,12 @@ class ConfirmarPedido extends Component {
                     <div className="card-body">
                         <div className="text-center">
                             <h3 className="text-uppercase font-weight-bold">Confirmación de canje</h3>
-                            <div className="col-6 col-md-5 mx-auto py-5">
+                            <div className="col-6 col-md-4 mx-auto py-5">
                                 <img className="img-fluid" src={image} alt="" />
                             </div>
                             <p className="font--semibold">Iniciará tu proceso de solicitud para el uso de tu vale de consumo por el monto de:</p>
-                            <h4 className="coBlue py-3">{unit_price}</h4>
-                            <p>Al confirmar tu solicitud, <strong>{name}</strong> te enviará el código correspondiente para que empieces a realizar tu pedido mediante su plataforma.</p>
+                            <h4 className="coBlue py-3">Bs. {unit_price}</h4>
+                            <p>Al confirmar tu solicitud, <strong>{name}</strong> te enviará en transcurso de 24hrs. el código correspondiente para que empieces a realizar tu pedido mediante su plataforma.</p>
                             <p><strong>Nota importante:</strong> El vale de consumo de multipago oferta es único, una vez realizada la confirmación quedará deshabilitado.</p>
 
                             <div className="col-12 px-0 pt-4">
