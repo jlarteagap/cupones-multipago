@@ -182,8 +182,15 @@ body{
 .delivery__btn{
     padding: 0;
 
-    &:focus {
+    &:hover, &:focus, &:active, &:focus-within {
         padding: 2px;
         box-shadow: 0 0 0 3px rgba(42, 250, 0, 0.55);
+
+        img {
+            width: 108%;
+            height: auto;
+        }
     }
+
 }
+

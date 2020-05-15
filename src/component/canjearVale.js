@@ -35,7 +35,8 @@ class SeleccionarDelivery extends Component {
                             <div className="col-12 mt-1">
                                 <div className="row">
                                     <p className="font-weight-bold p-0 col-12">Selecciona el servicio de DELIVERY a utilizar</p>
-                                    <div className="d-flex justify-content-center py-3">
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  
                                             {Object.keys(deliverys).map(delivery => (
                                                 <Delivery
                                                     key = {delivery}
@@ -43,8 +44,7 @@ class SeleccionarDelivery extends Component {
                                                     checkDelivery = {this.props.checkDelivery}
                                                 />
                                             )) }
-                                    </div>
-
+                                        </div>
                             </div>
                             <div className="col-12 px-0 pt-4">
                                 <div className="row">
