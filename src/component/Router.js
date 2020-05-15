@@ -60,7 +60,7 @@ class Router extends Component {
                                 
                             <Route exact path="/enviado">
                                 <SendMail
-                                    clickReset = {this.props.clickReset} 
+                                    clickHome = {this.props.clickHome} 
                                 />
                             </Route>
                         </Switch>

@@ -12,7 +12,7 @@ class SendMail extends Component {
                         <div className="text-center py-5">
                             <img className="mt-5" src={ send } alt="" />
                             <p className="pt-5">Tu solicitud de canje ha sido realizado con éxito. ¡Gracias por ayudar a tu restaurante favorito!</p>
-                            <Link className="btn bg--blue text-white " to="/" onClick={ () => this.props.clickReset()}>Salir</Link>
+                            <Link className="btn bg--blue text-white " to="/" onClick={ () => this.props.clickHome()}>Salir</Link>
                         </div>
                     </div>
                 </div>

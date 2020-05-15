@@ -43,6 +43,13 @@ class App extends Component {
     }))
   }
 
+  clickHome = () => {
+    this.setState( state => ({
+      
+      steps: {home: false, stepOne: false, stepTwo: false, stepThree: false, confirm: false}
+    }))
+  }
+
   codeScaner = async(codeQr) => {
     
     const url = 'https://stagingmultipago.ticketeg.com/api/v2/coupon-api/getDataServiceDelivery'
@@ -103,6 +110,7 @@ class App extends Component {
               codeScaner = {this.codeScaner}
               checkDelivery = {this.checkDelivery}
               orderConfirm = {this.orderConfirm}
+              clickHome = {this.clickHome}
             />) : (<Home homeState = {this.homeState} />)}
         </main>
       </div>

@@ -18,7 +18,7 @@ class SeleccionarDelivery extends Component {
 
     dataClient = () => {
         const status =this.props.status 
-        const {client, client_email, service, unit_price} = this.props.client;
+        const {client, client_email, service, glosa} = this.props.client;
         const deliverys = this.props.deliverys
 
 
@@ -37,7 +37,7 @@ class SeleccionarDelivery extends Component {
                                 <p className="coGray">{client}</p>
                                 <p className="coGray">{client_email}</p>
                                 <p className="coGray">{service}</p>
-                                <p className="coBlue font--semibold">{unit_price} </p>
+                                <p className="coBlue font--semibold">{glosa} </p>
                             </div>
                         </div>
                             <div className="col-12 mt-1">

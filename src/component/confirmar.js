@@ -23,7 +23,7 @@ class ConfirmarPedido extends Component {
         if(!this.props.delivery) return null
 
         const {id, image, name} = this.props.delivery;
-        const {unit_price} = this.props.client;
+        const {glosa} = this.props.client;
 
         return(
             <div className="col-12 col-md-6 scan__card">  
@@ -35,7 +35,7 @@ class ConfirmarPedido extends Component {
                                 <img className="img-fluid" src={image} alt="" />
                             </div>
                             <p className="font--semibold">Iniciará tu proceso de solicitud para el uso de tu vale de consumo por el monto de:</p>
-                            <h4 className="coBlue py-3">Bs. {unit_price}</h4>
+                            <h4 className="coBlue py-3">{glosa}</h4>
                             <p>Al confirmar tu solicitud, <strong>{name}</strong> te enviará en transcurso de 24hrs. el código correspondiente para que empieces a realizar tu pedido mediante su plataforma.</p>
                             <p><strong>Nota importante:</strong> El vale de consumo de multipago oferta es único, una vez realizada la confirmación quedará deshabilitado.</p>
 
