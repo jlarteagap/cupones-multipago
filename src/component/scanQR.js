@@ -44,7 +44,6 @@ class ScanQr extends Component {
         console.error(err)
       }
 
-
     render(){
         return(
             <div className="col-12 col-md-6 scan__card">
@@ -56,24 +55,24 @@ class ScanQr extends Component {
                                 delay = {500}
                                 onError={this.ScanError}
                                 onScan = {this.QrScanner}
-                                facingMode = {'rear'}
                                 className = 'card-body scanQr py-5 mx-auto'
                                 style=  {{ width: '100%' }}
+                                legacyMode
                             />
+
                             {/* <div className="card-footer bg--blue text-center text-white">
                                 Adjuntar QR
                             </div> */}
                         </div>
                         <form className="form-group mb-0" onSubmit={this.codeScan}>
                             <input className="form-control" type="text" placeholder="Código del vale" onChange={this.inputScan} value={this.state.inputData}/>
+                            {this.state.error ? (<div className="scanError">Ingrese un código valido</div>) : ('')}
                             <div className="col-12 px-0 pt-4">
                                 <div className="row">
                                     <div className="col-12">
                                         <button type="submit" className="btn bg--green btn-block text-white btn-block">
                                             Continuar
                                         </button>
-                                        {this.state.error ? (<div className="scanError">Ingrese un código valido</div>) : ('')}
-
                                     </div>
                                 </div>
                                
