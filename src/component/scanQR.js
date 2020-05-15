@@ -57,7 +57,6 @@ class ScanQr extends Component {
                                 onScan = {this.QrScanner}
                                 className = 'card-body scanQr py-5 mx-auto'
                                 style=  {{ width: '100%' }}
-                                legacyMode
                             />
 
                             {/* <div className="card-footer bg--blue text-center text-white">

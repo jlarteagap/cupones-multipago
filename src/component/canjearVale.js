@@ -8,14 +8,6 @@ class SeleccionarDelivery extends Component {
         value: false
     }
 
-    deliveryState = () => {
-  
-
-        
-            console.log(this.props.delivery)
-
-    }
-
     dataClient = () => {
         const status =this.props.status 
         const {client, client_email, service, glosa} = this.props.client;
