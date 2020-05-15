@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import QrReader from 'react-qr-scanner'
+import QrReader from 'react-qr-reader'
 
 class ScanQr extends Component {
     state = {
@@ -56,6 +56,7 @@ class ScanQr extends Component {
                                 delay = {500}
                                 onError={this.ScanError}
                                 onScan = {this.QrScanner}
+                                facingMode = 'user'
                                 className = 'card-body scanQr py-5 mx-auto'
                                 style={{ width: '100%' }}
                             />
