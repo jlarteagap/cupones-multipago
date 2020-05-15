@@ -16,7 +16,8 @@ class App extends Component {
     },
     client: {},
     deliverys: [],
-    delivery: ''
+    delivery: '',
+    status: ''
   }
 
   homeState = () => {
@@ -42,17 +43,25 @@ class App extends Component {
     }))
   }
 
-  codeScaner = codeQr => {
+  codeScaner = async(codeQr) => {
     
     const url = 'https://stagingmultipago.ticketeg.com/api/v2/coupon-api/getDataServiceDelivery'
 
-    axios.post(url, {qr_code: codeQr})
+    await axios.post(url, {qr_code: codeQr})
       .then(res => {
-        this.setState( state =>({
-          steps: {...state.steps, stepTwo: true, stepOne: false},
-          client: res.data.data.info,
-          deliverys: res.data.data.deliverys
-        }))
+
+        if (res.data.status === 'OK') {
+          this.setState( state =>({
+            steps: {...state.steps, stepTwo: true, stepOne: false},
+            client: res.data.data.info,
+            deliverys: res.data.data.deliverys,
+            status: res.data.status,
+          }))
+        } else {
+          this.setState({
+            status: res.data.status
+          })
+        }      
       })
   }
 
@@ -85,6 +94,7 @@ class App extends Component {
             <Router 
               steps = {this.state.steps}
               client = {this.state.client}
+              status = {this.state.status}
               deliverys = {this.state.deliverys}
               delivery = {this.state.delivery}
               stepTwo = {this.stepTwo}

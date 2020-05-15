@@ -33,6 +33,7 @@ class Router extends Component {
                                 clickReset = {this.props.clickReset} 
                                 client = {this.props.client}
                                 deliverys = {this.props.deliverys}
+                                status = {this.props.status}
                                 checkDelivery = {this.props.checkDelivery}
                                 /> </Route>
                             <Route exact path="/confirmar-pedido" render={ () => {

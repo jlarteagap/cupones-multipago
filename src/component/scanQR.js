@@ -48,8 +48,8 @@ class ScanQr extends Component {
     render(){
         return(
             <div className="col-12 col-md-6 scan__card">
-                <div className="card scan__card--inner">
-                    <div className="card-body my-5">
+                <div className="card ">
+                    <div className="card-body scan__card--inner">
                         <div className="card border-primary mb-4">
                             
                             <QrReader 

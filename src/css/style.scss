@@ -127,7 +127,7 @@ body{
 
 /* Scan QR*/
 .scanQr{
-    height: 450px;
+    height: 550px;
 }
 .scanError{
     font-size: 13px;
@@ -137,7 +137,10 @@ body{
 .scan__card{
     padding-bottom: 2.5rem;
     &--inner{
-        margin: 0 2.5;
+        display: inline-grid;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
     }
     @media (max-width: 768px){
         padding-top: 2.5rem;
