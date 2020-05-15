@@ -56,9 +56,8 @@ class ScanQr extends Component {
                                 delay = {500}
                                 onError={this.ScanError}
                                 onScan = {this.QrScanner}
-                                facingMode = 'user'
+                                facingMode = {'user'}
                                 className = 'card-body scanQr py-5 mx-auto'
-                                style={{ width: '100%' }}
                             />
                             {/* <div className="card-footer bg--blue text-center text-white">
                                 Adjuntar QR
