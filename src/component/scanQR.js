@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import QrReader from 'react-qr-reader'
+import QrReader from 'react-qr-scanner'
 
 class ScanQr extends Component {
     state = {
+        legacyMode: false,
         inputData: '',
         error: false
     }
      /* formulario del scanner */ 
     inputScan = e => {
         this.setState({inputData: e.target.value})
+    
     }
+
+
     /* enviar datos via post*/ 
+
+
     codeScan = e => {      
         e.preventDefault();
         const {inputData} = this.state
@@ -41,44 +47,35 @@ class ScanQr extends Component {
         }
       }
       ScanError = err => {
-        console.error(err)
+        this.setState(
+            {legacyMode: true}
+        )
       }
 
       openImageDialog() {
         this.refs.qrReader1.openImageDialog()
       }
+
+      
     render(){
         return(
             <div className="col-12 col-md-6 scan__card">
                 <div className="card ">
                     <div className="card-body scan__card--inner">
                         <div className="card border-primary mb-4">
-                            
-                            {/* <QrReader 
+                                <QrReader
                                 ref="qrReader1"
-                                delay = {500}
+                                delay={500}
                                 onError={this.ScanError}
                                 onScan = {this.QrScanner}
                                 className = 'card-body scanQr py-5 mx-auto'
-                                style=  {{ width: '100%' }}
-                                facingMode = "user"
+                                facingMode = "rear"
+                                legacyMode = {this.state.legacyMode}
+                                style = {{ width: '100%'}}
+                                />
 
-
-                            /> */}
-
-        <QrReader
-          ref="qrReader1"
-          delay={500}
-          onError={this.ScanError}
-          onScan = {this.QrScanner}
-          className = 'card-body scanQr py-5 mx-auto'
-          facingMode = "user"
-          
-        />
-                            <input type="button" value="Submit QR Code" onClick={() =>this.openImageDialog()} />
-                            {/* <div className="card-footer bg--blue text-center text-white">
-                                Adjuntar QR
-                            </div> */}
+                            {this.state.legacyMode ? (<React.Fragment><div className="scanError text-center pb-2">No podemos acceder a su cámara</div><input type="button" className="btn card-footer bg--blue text-center text-white" value="Adjuntar QR" onClick={() =>this.openImageDialog()}  /></React.Fragment>): ('')}
+   
                         </div>
                         <form className="form-group mb-0" onSubmit={this.codeScan}>
                             <input className="form-control" type="text" placeholder="Código del vale" onChange={this.inputScan} value={this.state.inputData}/>
