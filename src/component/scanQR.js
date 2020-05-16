@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import QrReader from 'react-qr-scanner'
+import QrReader from 'react-qr-reader'
 
 class ScanQr extends Component {
     state = {
@@ -44,6 +44,9 @@ class ScanQr extends Component {
         console.error(err)
       }
 
+      openImageDialog() {
+        this.refs.qrReader1.openImageDialog()
+      }
     render(){
         return(
             <div className="col-12 col-md-6 scan__card">
@@ -51,15 +54,28 @@ class ScanQr extends Component {
                     <div className="card-body scan__card--inner">
                         <div className="card border-primary mb-4">
                             
-                            <QrReader 
+                            {/* <QrReader 
+                                ref="qrReader1"
                                 delay = {500}
                                 onError={this.ScanError}
                                 onScan = {this.QrScanner}
                                 className = 'card-body scanQr py-5 mx-auto'
                                 style=  {{ width: '100%' }}
+                                facingMode = "user"
 
-                            />
 
+                            /> */}
+
+        <QrReader
+          ref="qrReader1"
+          delay={500}
+          onError={this.ScanError}
+          onScan = {this.QrScanner}
+          className = 'card-body scanQr py-5 mx-auto'
+          facingMode = "user"
+          legacyMode
+        />
+                            <input type="button" value="Submit QR Code" onClick={() =>this.openImageDialog()} />
                             {/* <div className="card-footer bg--blue text-center text-white">
                                 Adjuntar QR
                             </div> */}

@@ -49,7 +49,7 @@ class ConfirmarPedido extends Component {
             <img className="img-fluid" src={image} alt="" />
           </div>
           <p className="font--semibold">
-            Iniciará tu proceso de solicitud para el uso de tu vale de consumo por el monto de:
+            Iniciará tu proceso de solicitud para el uso de tu vale de consumo por el uso de tu vale de consumo por:
           </p>
           <h4 className="coBlue py-3">{glosa}</h4>
           <p>

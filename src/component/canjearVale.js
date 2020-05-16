@@ -24,7 +24,7 @@ class SeleccionarDelivery extends Component {
                                 <p>Nombre: </p>
                                 <p>Correo:</p>
                                 <p>Comercio: </p>
-                                <p>Monto del vale (Bs.):</p>
+                                <p>Vale por:</p>
                             </div>
                             <div className="col-8">
                                 <p className="coGray">{client}</p>
