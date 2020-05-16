@@ -73,7 +73,7 @@ class ScanQr extends Component {
           onScan = {this.QrScanner}
           className = 'card-body scanQr py-5 mx-auto'
           facingMode = "user"
-          legacyMode
+          
         />
                             <input type="button" value="Submit QR Code" onClick={() =>this.openImageDialog()} />
                             {/* <div className="card-footer bg--blue text-center text-white">
