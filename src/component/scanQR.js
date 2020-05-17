@@ -70,7 +70,7 @@ class ScanQr extends Component {
         }
       }
       mostrarTexto = () => {
-        if(this.state.facingMode === "rear"){
+        if(this.state.facingMode === "user"){
             return("Camara trasera")
         } else {
             return("Camara frontal")
