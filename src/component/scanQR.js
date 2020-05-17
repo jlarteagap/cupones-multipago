@@ -48,10 +48,10 @@ class ScanQr extends Component {
         }
       }
       ScanError = err => {
-        // this.setState(
-        //     {legacyMode: true}
-        // )
-        console.error(err)
+        this.setState(
+            {legacyMode: true}
+        )
+
       }
 
       openImageDialog() {
@@ -84,7 +84,7 @@ class ScanQr extends Component {
                         <div className="card border-primary mb-4">
                                 <QrReader
                                 ref="qrReader1"
-                                delay={500}
+                                delay={300}
                                 onError={this.ScanError}
                                 onScan = {this.QrScanner}
                                 className = 'card-body scanQr py-5 mx-auto'
@@ -93,15 +93,11 @@ class ScanQr extends Component {
                                 style = {{ width: '100%'}}
                                 />
 
-                            
-
-                            {this.state.legacyMode ? (<React.Fragment><div className="scanError text-center pb-2">No podemos acceder a su cámara</div><input type="button" className="btn card-footer bg--blue text-center text-white" value="Adjuntar QR" onClick={() =>this.openImageDialog()}  /></React.Fragment>): ('')}
+                            {this.state.legacyMode ? (<React.Fragment><div className="scanError text-center pb-2">No podemos acceder a su cámara</div><input type="button" className="btn card-footer bg--blue text-center text-white" value="Adjuntar QR" onClick={() =>this.openImageDialog()}  /></React.Fragment>): (<input type="button" className="btn card-footer bg--blue text-center text-white" value={this.mostrarTexto()} onClick={this.camaraButton}  />)}
    
                         </div>
 
-                        <button className="btn bg--blue" onClick={this.camaraButton} >
-                            {this.mostrarTexto()}
-                        </button>
+                        
 
                         <form className="form-group mb-0" onSubmit={this.codeScan}>
                             <input className="form-control" type="text" placeholder="Código del vale" onChange={this.inputScan} value={this.state.inputData}/>
