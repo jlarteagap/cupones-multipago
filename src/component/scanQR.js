@@ -5,6 +5,7 @@ import QrReader from 'react-qr-scanner'
 class ScanQr extends Component {
     state = {
         legacyMode: false,
+        facingMode: "rear",
         inputData: '',
         error: false
     }
@@ -56,7 +57,24 @@ class ScanQr extends Component {
         this.refs.qrReader1.openImageDialog()
       }
 
-      
+      camaraButton = () =>{
+        if(this.state.facingMode === "rear"){
+            this.setState({
+                facingMode: "front"
+            })
+        } else {
+            this.setState({
+                facingMode: "rear"
+            })
+        }
+      }
+      mostrarTexto = () => {
+        if(this.state.facingMode === "rear"){
+            return("Camara trasera")
+        } else {
+            return("Camara frontal")
+        }
+      }
     render(){
         return(
             <div className="col-12 col-md-6 scan__card">
@@ -69,14 +87,21 @@ class ScanQr extends Component {
                                 onError={this.ScanError}
                                 onScan = {this.QrScanner}
                                 className = 'card-body scanQr py-5 mx-auto'
-                                facingMode = "rear"
+                                facingMode = {this.state.facingMode}
                                 legacyMode = {this.state.legacyMode}
                                 style = {{ width: '100%'}}
                                 />
 
+                            
+
                             {this.state.legacyMode ? (<React.Fragment><div className="scanError text-center pb-2">No podemos acceder a su cámara</div><input type="button" className="btn card-footer bg--blue text-center text-white" value="Adjuntar QR" onClick={() =>this.openImageDialog()}  /></React.Fragment>): ('')}
    
                         </div>
+
+                        <button className="btn bg--blue" onClick={this.camaraButton} >
+                            {this.mostrarTexto()}
+                        </button>
+
                         <form className="form-group mb-0" onSubmit={this.codeScan}>
                             <input className="form-control" type="text" placeholder="Código del vale" onChange={this.inputScan} value={this.state.inputData}/>
                             {this.state.error ? (<div className="scanError">Ingrese un código valido</div>) : ('')}
