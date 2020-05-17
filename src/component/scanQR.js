@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import QrReader from 'react-qr-scanner'
+import QrReader from 'react-qr-reader'
 
 class ScanQr extends Component {
     state = {
         legacyMode: false,
-        facingMode: "rear",
+        facingMode: "user",
         inputData: '',
         error: false
     }
@@ -48,9 +48,10 @@ class ScanQr extends Component {
         }
       }
       ScanError = err => {
-        this.setState(
-            {legacyMode: true}
-        )
+        // this.setState(
+        //     {legacyMode: true}
+        // )
+        console.error(err)
       }
 
       openImageDialog() {
@@ -58,13 +59,13 @@ class ScanQr extends Component {
       }
 
       camaraButton = () =>{
-        if(this.state.facingMode === "rear"){
+        if(this.state.facingMode === "environment"){
             this.setState({
-                facingMode: "front"
+                facingMode: "user"
             })
         } else {
             this.setState({
-                facingMode: "rear"
+                facingMode: "environment"
             })
         }
       }
