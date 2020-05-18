@@ -36,6 +36,7 @@ class Router extends Component {
                                 delivery = {this.props.delivery}
                                 status = {this.props.status}
                                 checkDelivery = {this.props.checkDelivery}
+                                loading = {this.props.loading}
                                 /> </Route>
                             <Route exact path="/confirmar-pedido" render={ () => {
                                 let idDelivery = this.props.delivery

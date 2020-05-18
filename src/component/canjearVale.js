@@ -20,23 +20,17 @@ class SeleccionarDelivery extends Component {
                     <div className="card-body scan__card--inner">
                         <h3 className="text-uppercase text-center font-weight-bold">Vale de consumo Válido</h3>
                         <div className="row pt-4">
-                            <div className="col-4 font--semibold">
-                                <p>Nombre: </p>
-                                <p>Correo:</p>
-                                <p>Comercio: </p>
-                                <p>Vale por:</p>
-                            </div>
-                            <div className="col-8">
-                                <p className="coGray">{client}</p>
-                                <p className="coGray">{client_email}</p>
-                                <p className="coGray">{service}</p>
-                                <p className="coBlue font--semibold">{glosa} </p>
+                            <div className="col-12 font--semibold p-0">
+                                <p><span className="col-4">Nombre:</span> <span className="col-8 coGray">{client}</span></p>
+                                <p><span className="col-4">Correo:</span> <span className="col-8 coBlue font--semibold">{client_email}</span></p>
+                                <p><span className="col-4">Comercio:</span> <span className="col-8 coBlue font--semibold">{service}</span></p>
+                                <p><span className="col-4">Vale por:</span> <span className="col-8 coBlue font--semibold">{glosa}</span></p>
                             </div>
                         </div>
                             <div className="col-12 mt-1">
                                 <div className="row">
                                     <p className="font-weight-bold p-0 col-12">Selecciona el servicio de DELIVERY a utilizar</p>
-                                    <div class="d-flex justify-content-center py-3 col-12">
+                                    <div class="py-3 col-12">
   
                                             {Object.keys(deliverys).map(delivery => (
                                                 <Delivery
@@ -62,39 +56,54 @@ class SeleccionarDelivery extends Component {
                         </div>
                 </React.Fragment>
             )
-        } else{
-            return(
-                <React.Fragment>
-                    <div className="card-body scan__card--inner d-flex align-items-center">
-                        <div className="">
-                            <h3 className="text-uppercase text-center font-weight-bold">Vale de consumo Inválido</h3>
-                            <p className="font--semibold text-center">El código del vale de consumo no es válido o se encuentra deshabilitado porque ya ha sido utilizado.</p>
-                            <p className="text-center">Si necesitas ayuda o consulta sobre el servicio no dudes en contactarnos, estaremos gustosos de atenderte.</p>
+        } 
 
-                            <div className="col-12 px-0 pt-4">
-                                <div className="row">
-                                    <div className="col-12">
-                                        <Link className="btn bg--green text-white btn-block" to="/" >Escanear QR</Link>
+        if(status === "ERROR"){
+
+                return(
+                    <React.Fragment>
+                        <div className="card-body scan__card--inner d-flex align-items-center">
+                            <div className="">
+                                <h3 className="text-uppercase text-center font-weight-bold">Vale de consumo Inválido</h3>
+                                <p className="font--semibold text-center">El código del vale de consumo no es válido o se encuentra deshabilitado porque ya ha sido utilizado.</p>
+                                <p className="text-center">Si necesitas ayuda o consulta sobre el servicio no dudes en contactarnos, estaremos gustosos de atenderte.</p>
+    
+                                <div className="col-12 px-0 pt-4">
+                                    <div className="row">
+                                        <div className="col-12">
+                                            <Link className="btn bg--green text-white btn-block" to="/" >Escanear QR</Link>
+                                        </div>
                                     </div>
+                                        
                                 </div>
-                                    
                             </div>
                         </div>
-                    </div>
-                </React.Fragment>
-            )
+                    </React.Fragment>
+                )
+
         }
     }
 
     render(){
+        const loading = this.props.loading
+        let result; 
 
+        if(loading){
+            result = <div class="spinner">
+                     <div class="double-bounce1"></div>
+                     <div class="double-bounce2"></div>
+                     </div>
+
+        } else {
+            result = this.dataClient()
+        }
 
         return(
             <div className="col-12 col-md-6 scan__card">
                 <div className="card">
-                    
-                        {this.dataClient()}
-
+                    <div className="card-body scan__card--inner d-flex align-items-center">
+                        {result}
+                    </div>
                 </div>
             </div>
         )

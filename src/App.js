@@ -17,7 +17,8 @@ class App extends Component {
     client: {},
     deliverys: [],
     delivery: '',
-    status: ''
+    status: '',
+    loading: false
   }
 
   homeState = () => {
@@ -56,19 +57,25 @@ class App extends Component {
 
     await axios.post(url, {qr_code: codeQr})
       .then(res => {
-
-        if (res.data.status === 'OK') {
-          this.setState( state =>({
-            steps: {...state.steps, stepTwo: true, stepOne: false},
-            client: res.data.data.info,
-            deliverys: res.data.data.deliverys,
-            status: res.data.status,
-          }))
-        } else {
-          this.setState({
-            status: res.data.status
-          })
-        }      
+        this.setState(
+          {loading:true}
+        )
+        setTimeout(() =>{
+          if (res.data.status === 'OK') {
+            this.setState( state =>({
+              steps: {...state.steps, stepTwo: true, stepOne: false},
+              client: res.data.data.info,
+              deliverys: res.data.data.deliverys,
+              status: res.data.status,
+              loading: false
+            }))
+          } else {
+            this.setState({
+              status: res.data.status,
+              loading:false
+            })
+          }      
+        },2000)
       })
   }
 
@@ -111,6 +118,7 @@ class App extends Component {
               checkDelivery = {this.checkDelivery}
               orderConfirm = {this.orderConfirm}
               clickHome = {this.clickHome}
+              loading = {this.state.loading}
             />) : (<Home homeState = {this.homeState} />)}
         </main>
       </div>

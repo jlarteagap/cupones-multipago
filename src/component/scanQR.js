@@ -69,13 +69,7 @@ class ScanQr extends Component {
             })
         }
       }
-      mostrarTexto = () => {
-        if(this.state.facingMode === "user"){
-            return("Camara trasera")
-        } else {
-            return("Camara frontal")
-        }
-      }
+
     render(){
         return(
             <div className="col-12 col-md-6 scan__card">
@@ -93,7 +87,7 @@ class ScanQr extends Component {
                                 style = {{ width: '100%'}}
                                 />
 
-                            {this.state.legacyMode ? (<React.Fragment><div className="scanError text-center pb-2">No podemos acceder a su cámara</div><input type="button" className="btn card-footer bg--blue text-center text-white" value="Adjuntar QR" onClick={() =>this.openImageDialog()}  /></React.Fragment>): (<input type="button" className="btn card-footer bg--blue text-center text-white" value={this.mostrarTexto()} onClick={this.camaraButton}  />)}
+                            {this.state.legacyMode ? (<React.Fragment><div className="scanError text-center pb-2">No podemos acceder a su cámara, por favor adjuntar codigo QR</div><input type="button" className="btn card-footer bg--blue text-center text-white" value="Adjuntar QR" onClick={() =>this.openImageDialog()}  /></React.Fragment>): (<input type="button" className="btn card-footer bg--blue text-center text-white" value="Cambiar de camara" onClick={this.camaraButton}  />)}
    
                         </div>
 
