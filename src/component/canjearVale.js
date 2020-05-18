@@ -20,18 +20,20 @@ class SeleccionarDelivery extends Component {
                     <div className="card-body scan__card--inner">
                         <h3 className="text-uppercase text-center font-weight-bold">Vale de consumo Válido</h3>
                         <div className="row pt-4">
-                            <div className="col-12 font--semibold p-0">
-                                <p><span className="col-4">Nombre:</span> <span className="col-8 coGray">{client}</span></p>
-                                <p><span className="col-4">Correo:</span> <span className="col-8 coBlue font--semibold">{client_email}</span></p>
-                                <p><span className="col-4">Comercio:</span> <span className="col-8 coBlue font--semibold">{service}</span></p>
-                                <p><span className="col-4">Vale por:</span> <span className="col-8 coBlue font--semibold">{glosa}</span></p>
+                            <div className="col-12 p-0">
+                                <div className="row">
+                                    <div className="col-4 font--semibold pt-2">Nombre:</div> <div className="col-8 coGray">{client}</div>
+                                    <div className="col-4 font--semibold pt-2">Correo:</div> <div className="col-8 coGray">{client_email}</div>
+                                    <div className="col-4 font--semibold pt-2">Comercio:</div> <div className="col-8 coGray">{service}</div>
+                                    <div className="col-4 font--semibold pt-2">Vale por:</div> <div className="col-8 coGray font--semibold">{glosa}</div>
+                                </div>
                             </div>
                         </div>
-                            <div className="col-12 mt-1">
+                            <div className="col-12 mt-4 p-0">
                                 <div className="row">
                                     <p className="font-weight-bold p-0 col-12">Selecciona el servicio de DELIVERY a utilizar</p>
                                     <div class="py-3 col-12">
-  
+                                        <div className="row">
                                             {Object.keys(deliverys).map(delivery => (
                                                 <Delivery
                                                     key = {delivery}
@@ -40,6 +42,7 @@ class SeleccionarDelivery extends Component {
                                                 />
                                             )) }
                                         </div>
+                                    </div>
                             </div>
                             <div className="col-12 px-0 pt-4">
                                 <div className="row">
