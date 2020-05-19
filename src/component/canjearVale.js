@@ -4,14 +4,18 @@ import { Link } from 'react-router-dom';
 import Delivery from './delivery';
 class SeleccionarDelivery extends Component {
 
-    state = {
-        value: false
-    }
-
     dataClient = () => {
-        const status =this.props.status 
+        const status =this.props.status;
         const {client, client_email, service, glosa} = this.props.client;
-        const deliverys = this.props.deliverys
+        const deliverys = this.props.deliverys;
+
+        let delivery = false
+
+            if(this.props.delivery === "") {
+                delivery =  false
+            } else{
+                delivery = true
+            }
 
 
         if (status === "OK") {
@@ -22,10 +26,10 @@ class SeleccionarDelivery extends Component {
                         <div className="row pt-4">
                             <div className="col-12 p-0">
                                 <div className="row">
-                                    <div className="col-4 font--semibold pt-2">Nombre:</div> <div className="col-8 coGray">{client}</div>
-                                    <div className="col-4 font--semibold pt-2">Correo:</div> <div className="col-8 coGray">{client_email}</div>
-                                    <div className="col-4 font--semibold pt-2">Comercio:</div> <div className="col-8 coGray">{service}</div>
-                                    <div className="col-4 font--semibold pt-2">Vale por:</div> <div className="col-8 coGray font--semibold">{glosa}</div>
+                                    <div className="col-4 font--semibold pt-2">Nombre:</div> <div className="col-8 coGray pt-2">{client}</div>
+                                    <div className="col-4 font--semibold pt-2">Correo:</div> <div className="col-8 coGray pt-2">{client_email}</div>
+                                    <div className="col-4 font--semibold pt-2">Comercio:</div> <div className="col-8 coGray pt-2">{service}</div>
+                                    <div className="col-4 font--semibold pt-2">Vale por:</div> <div className="col-8 coGray font--semibold pt-2">{glosa}</div>
                                 </div>
                             </div>
                         </div>
@@ -43,6 +47,8 @@ class SeleccionarDelivery extends Component {
                                             )) }
                                         </div>
                                     </div>
+
+                                    {delivery ? ('') : (<div className="scanError">Seleccione un servicio de Delivery</div>)}
                             </div>
                             <div className="col-12 px-0 pt-4">
                                 <div className="row">
@@ -50,7 +56,7 @@ class SeleccionarDelivery extends Component {
                                         <Link className="btn bg--blue text-white btn-block" to="/" onClick={ () => this.props.clickReset()}>Volver</Link>
                                     </div>
                                      <div className="col-6 pr-0">
-                                     <Link className="btn bg--green text-white btn-block" to="/confirmar-pedido" onClick={ () => this.props.stepThree()}>Continuar</Link>
+                                     <Link className={"btn bg--green text-white btn-block" + (delivery ? (''): (' disabled'))} to="/confirmar-pedido" onClick={ () => this.props.stepThree()}>Continuar</Link>
                                     </div>
                                 </div>
                                

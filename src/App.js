@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
+
 import Router from './component/Router';
 
 import Home from './component/home'
@@ -57,6 +58,7 @@ class App extends Component {
 
     await axios.post(url, {qr_code: codeQr})
       .then(res => {
+
         this.setState(
           {loading:true}
         )

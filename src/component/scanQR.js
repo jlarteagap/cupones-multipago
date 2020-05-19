@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Swal from 'sweetalert2'
+
 import { withRouter } from 'react-router-dom';
 import QrReader from 'react-qr-reader'
 
@@ -11,8 +13,7 @@ class ScanQr extends Component {
     }
      /* formulario del scanner */ 
     inputScan = e => {
-        this.setState({inputData: e.target.value})
-    
+        this.setState({inputData: e.target.value})  
     }
 
 
@@ -31,7 +32,7 @@ class ScanQr extends Component {
         } else{ this.setState({error: false})}
 
         const infoInput = {
-            data: this.state.inputData
+            data: this.state.inputData,
         }
 
         this.props.codeScaner(infoInput);
@@ -42,6 +43,11 @@ class ScanQr extends Component {
       /* Scanner */ 
     QrScanner = data => {
         if (data) {
+            Swal.fire(
+                'Código QR Correctamente!',
+                'Se ha leído correctamente su código QR!',
+                'success'
+              )
           this.setState({
             inputData: data
           })
@@ -87,7 +93,7 @@ class ScanQr extends Component {
                                 style = {{ width: '100%'}}
                                 />
 
-                            {this.state.legacyMode ? (<React.Fragment><div className="scanError text-center pb-2">No podemos acceder a su cámara, por favor adjuntar codigo QR</div><input type="button" className="btn card-footer bg--blue text-center text-white" value="Adjuntar QR" onClick={() =>this.openImageDialog()}  /></React.Fragment>): (<input type="button" className="btn card-footer bg--blue text-center text-white" value="Cambiar de camara" onClick={this.camaraButton}  />)}
+                            {this.state.legacyMode ? (<React.Fragment><div className="scanError text-center pb-2">No podemos acceder a su cámara, por favor adjuntar codigo QR</div><input type="button" className="btn card-footer bg--blue text-center text-white" value="Adjuntar QR" onClick={() =>this.openImageDialog()}  /></React.Fragment>): (<input type="button" className="btn card-footer camaraMovil bg--blue text-center text-white" value="Cambiar de camara" onClick={this.camaraButton}  />)}
    
                         </div>
 

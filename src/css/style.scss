@@ -233,3 +233,10 @@ body{
       -webkit-transform: scale(1.0);
     }
   }
+
+.camaraMovil {
+    display: none;
+    @media (max-width: 768px){
+        display: block;
+    }
+}
