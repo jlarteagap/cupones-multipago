@@ -9,7 +9,8 @@ class ScanQr extends Component {
         legacyMode: false,
         facingMode: "user",
         inputData: '',
-        error: false
+        error: false,
+        modal: 0
     }
      /* formulario del scanner */ 
     inputScan = e => {
@@ -29,7 +30,7 @@ class ScanQr extends Component {
                 error: true
             })
             return
-        } else{ this.setState({error: false})}
+        } else{ this.setState({error: false, inputData: ''})}
 
         const infoInput = {
             data: this.state.inputData,
@@ -43,14 +44,20 @@ class ScanQr extends Component {
       /* Scanner */ 
     QrScanner = data => {
         if (data) {
+          this.setState({
+            inputData: data,
+          })
+
+        }
+        if(this.state.modal === 0 && this.state.inputData.length >= '1'){
             Swal.fire(
                 'Código QR Correctamente!',
                 'Se ha leído correctamente su código QR!',
                 'success'
-              )
-          this.setState({
-            inputData: data
-          })
+                )
+            this.setState({
+                modal: +1
+            })
         }
       }
       ScanError = err => {
@@ -77,6 +84,8 @@ class ScanQr extends Component {
       }
 
     render(){
+
+
         return(
             <div className="col-12 col-md-6 scan__card">
                 <div className="card ">
@@ -95,9 +104,7 @@ class ScanQr extends Component {
 
                             {this.state.legacyMode ? (<React.Fragment><div className="scanError text-center pb-2">No podemos acceder a su cámara, por favor adjuntar codigo QR</div><input type="button" className="btn card-footer bg--blue text-center text-white" value="Adjuntar QR" onClick={() =>this.openImageDialog()}  /></React.Fragment>): (<input type="button" className="btn card-footer camaraMovil bg--blue text-center text-white" value="Cambiar de camara" onClick={this.camaraButton}  />)}
    
-                        </div>
-
-                        
+                        </div>                      
 
                         <form className="form-group mb-0" onSubmit={this.codeScan}>
                             <input className="form-control" type="text" placeholder="Código del vale" onChange={this.inputScan} value={this.state.inputData}/>

@@ -40,7 +40,10 @@ class App extends Component {
   }
   clickReset = () => {
     this.setState( state => ({
-      
+      client: {}, 
+      deliverys: [], 
+      delivery: '', 
+      status: '',
       steps: {home: true, stepOne: true, stepTwo: false, stepThree: false, confirm: false}
     }),() => this.scroll())
   }
