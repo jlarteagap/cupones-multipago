@@ -25,31 +25,31 @@ class App extends Component {
   homeState = () => {
     this.setState( state => ({
         steps: { ...state.steps, home: true, stepOne: true }
-    }))
+    }),() => this.scroll())
 }
 
   stepTwo = () => {
     this.setState( state => ({
       steps: {...state.steps, stepOne: false, stepTwo: true, stepThree: false}
-    }))
+    }),() => this.scroll())
   }
   stepThree = () => {
     this.setState( state => ({
       steps: {...state.steps, stepOne: false, stepTwo: false, stepThree: true}
-    }))
+    }), () => this.scroll())
   }
   clickReset = () => {
     this.setState( state => ({
       
       steps: {home: true, stepOne: true, stepTwo: false, stepThree: false, confirm: false}
-    }))
+    }),() => this.scroll())
   }
 
   clickHome = () => {
     this.setState( state => ({
       
       steps: {home: false, stepOne: false, stepTwo: false, stepThree: false, confirm: false}
-    }))
+    }), () => this.scroll())
   }
 
   codeScaner = async(codeQr) => {
@@ -70,12 +70,12 @@ class App extends Component {
               deliverys: res.data.data.deliverys,
               status: res.data.status,
               loading: false
-            }))
+            }),() => this.scroll())
           } else {
             this.setState({
               status: res.data.status,
               loading:false
-            })
+            },() => this.scroll())
           }      
         },1000)
       })
@@ -92,7 +92,7 @@ class App extends Component {
       .then(res => {
         this.setState( state => ({
           steps: {...state.steps, stepThree: false, confirm: true}
-        }))
+        }), () => this.scroll())
       })
   }
 
@@ -102,6 +102,11 @@ class App extends Component {
     })
   }
 
+  scroll = () => {
+    const selector = document.querySelector('.wrapper__scan')
+    selector.scrollIntoView('smooth', 'start')
+  }
+   
   render(){
     return (
       <div className={"container-fluid p-0 bg wrapper__scan min-vh-100 position-relative " + (this.state.steps.home ? ' ' : 'vh-100')}>
