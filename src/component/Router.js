@@ -54,6 +54,7 @@ class Router extends Component {
                                     client = {this.props.client}
                                     stepTwo = {this.props.stepTwo}
                                     stepThree = {this.props.stepThree}
+                                    clickReset = {this.props.clickReset}
                                     orderConfirm = {this.props.orderConfirm}
                                     />
                                 )

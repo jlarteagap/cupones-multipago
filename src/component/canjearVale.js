@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Delivery from './delivery';
 class SeleccionarDelivery extends Component {
 
+
+
     dataClient = () => {
         const status =this.props.status;
         const {client, client_email, service, glosa} = this.props.client;

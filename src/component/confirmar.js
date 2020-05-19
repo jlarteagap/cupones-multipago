@@ -27,7 +27,7 @@ class ConfirmarPedido extends Component {
                     <div className="col-12 px-0 pt-4">
                         <div className="row">
                             <div className="col-5 mx-auto">
-                                <Link className="btn-block btn bg--blue text-white btn-block" to="/seleccionar-delivery" onClick={() => this.props.stepTwo()} >
+                                <Link className="btn-block btn bg--blue text-white btn-block" to="/" onClick={() => this.props.clickReset()} >
                                     Volver
                                 </Link>
                             </div>

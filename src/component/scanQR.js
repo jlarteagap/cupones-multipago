@@ -49,7 +49,7 @@ class ScanQr extends Component {
           })
 
         }
-        if(this.state.modal === 0 && this.state.inputData.length >= '1'){
+        if(this.state.modal === 0 && this.state.inputData.length >= '16'){
             Swal.fire(
                 'Código QR Correctamente!',
                 'Se ha leído correctamente su código QR!',
