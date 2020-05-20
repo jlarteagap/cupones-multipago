@@ -107,7 +107,7 @@ class ScanQr extends Component {
                         </div>                      
 
                         <form className="form-group mb-0" onSubmit={this.codeScan}>
-                            <input className="form-control" type="text" placeholder="Código del vale" onChange={this.inputScan} value={this.state.inputData}/>
+                            <input className="form-control" type="text" placeholder="Código del vale" disabled onChange={this.inputScan} value={this.state.inputData}/>
                             {this.state.error ? (<div className="scanError">Ingrese un código valido</div>) : ('')}
                             <div className="col-12 px-0 pt-4">
                                 <div className="row">
