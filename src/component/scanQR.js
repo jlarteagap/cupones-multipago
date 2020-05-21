@@ -12,6 +12,8 @@ class ScanQr extends Component {
         error: false,
         modal: 0
     }
+
+    qrReader1 = React.createRef();
      /* formulario del scanner */ 
     inputScan = e => {
         this.setState({inputData: e.target.value})  
@@ -68,7 +70,7 @@ class ScanQr extends Component {
       }
 
       openImageDialog() {
-        this.refs.qrReader1.openImageDialog()
+        this.ref.qrReader1.openImageDialog()
       }
 
       camaraButton = () =>{
@@ -92,7 +94,7 @@ class ScanQr extends Component {
                     <div className="card-body scan__card--inner">
                         <div className="card border-primary mb-4">
                                 <QrReader
-                                ref="qrReader1"
+                                ref= {this.qrReader1}
                                 delay={300}
                                 onError={this.ScanError}
                                 onScan = {this.QrScanner}

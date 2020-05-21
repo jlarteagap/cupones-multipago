@@ -61,7 +61,7 @@ class App extends Component {
 
     await axios.post(url, {qr_code: codeQr})
       .then(res => {
-
+        console.log(res)
         this.setState(
           {loading:true}
         )
@@ -77,6 +77,7 @@ class App extends Component {
           } else {
             this.setState({
               status: res.data.status,
+              client: res.data.data,
               loading:false
             },() => this.scroll())
           }      
