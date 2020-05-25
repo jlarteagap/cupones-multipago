@@ -18,10 +18,7 @@ class ScanQr extends Component {
     inputScan = e => {
         this.setState({inputData: e.target.value})  
     }
-
-
     /* enviar datos via post*/ 
-
 
     codeScan = e => {      
         e.preventDefault();
@@ -42,7 +39,6 @@ class ScanQr extends Component {
 
         this.props.history.push("/seleccionar-delivery");
     }
-
       /* Scanner */ 
     QrScanner = data => {
         if (data) {
@@ -86,26 +82,22 @@ class ScanQr extends Component {
       }
 
     render(){
-
-
         return(
             <div className="col-12 col-md-6 scan__card">
                 <div className="card ">
                     <div className="card-body scan__card--inner">
                         <div className="card border-primary mb-4">
                                 <QrReader
-                                ref= {this.qrReader1}
                                 delay={300}
                                 onError={this.ScanError}
                                 onScan = {this.QrScanner}
                                 className = 'card-body scanQr py-5 mx-auto'
                                 facingMode = {this.state.facingMode}
+                                ref= {this.qrReader1}
                                 legacyMode = {this.state.legacyMode}
                                 style = {{ width: '100%'}}
                                 />
-
                             {this.state.legacyMode ? (<React.Fragment><div className="scanError text-center pb-2">No podemos acceder a su cámara, por favor adjuntar codigo QR</div><input type="button" className="btn card-footer bg--blue text-center text-white" value="Adjuntar QR" onClick={() =>this.openImageDialog()}  /></React.Fragment>): (<input type="button" className="btn card-footer camaraMovil bg--blue text-center text-white" value="Cambiar de camara" onClick={this.camaraButton}  />)}
-   
                         </div>                      
 
                         <form className="form-group mb-0" onSubmit={this.codeScan}>

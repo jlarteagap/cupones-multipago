@@ -8,7 +8,7 @@ class Delivery extends Component {
 
             <div className="col-6 col-md-3 px-1"> 
                 <button className="btn delivery__btn" onClick={ () => this.props.checkDelivery(id)} >
-                    <img className="img-fluid" src={image} alt={name} />
+                    <img className="img-fluid" src={"canjedelivery" + image} alt={name} />
                 </button>
 
             </div>

@@ -21,7 +21,6 @@ class HomeText extends Component {
             </p>
             <div className="mx-auto w-100">
               <button
-                to="/scan"
                 className="btn btn-success btn--canjea text-uppercase"
                 onClick={ () => this.props.homeState()}
               >

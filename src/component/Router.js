@@ -19,13 +19,13 @@ class Router extends Component {
                 <div className="col-12 col-md-10 mx-auto pt-5">
                     <div className="row">
                         <div className="col-10 mx-auto col-md-6 text-white p-0">
-                            <Link to="/" onClick={ () => this.props.clickReset() }>
+                            <Link to="/canjedelivery" onClick={ () => this.props.clickReset() }>
                                 <img src={ multipagoOferta } className="img-fluid d-block mx-auto" alt="" />
                             </Link>
                             <OptionsText steps = {this.props.steps} />
                         </div>
                         <Switch>
-                            <Route exact path="/" >
+                            <Route exact path="/canjedelivery" >
                                 <ScanQr codeScaner = {this.props.codeScaner}  /></Route>
                             <Route exact path="/seleccionar-delivery">
                                 <SeleccionarDelivery 

@@ -57,7 +57,7 @@ class App extends Component {
 
   codeScaner = async(codeQr) => {
     
-    const url = 'https://stagingmultipago.ticketeg.com/api/v2/coupon-api/getDataServiceDelivery'
+    const url = 'https://multipago.bo/api/v2/coupon-api/getDataServiceDelivery'
 
     await axios.post(url, {qr_code: codeQr})
       .then(res => {
@@ -90,7 +90,7 @@ class App extends Component {
       steps: {...state.steps, stepThree: false, confirm: true}
     }))
 
-    const url =  'https://stagingmultipago.ticketeg.com/api/v2/coupon-api/createCouponExchange'
+    const url =  'https://multipago.bo/api/v2/coupon-api/createCouponExchange'
 
     axios.post(url, data)
       .then(res => {

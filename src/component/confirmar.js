@@ -46,7 +46,7 @@ class ConfirmarPedido extends Component {
             Confirmación de canje
           </h3>
           <div className="col-6 col-md-4 mx-auto py-5">
-            <img className="img-fluid" src={image} alt="" />
+            <img className="img-fluid" src={"canjedelivery" + image} alt="" />
           </div>
           <p className="font--semibold">
             Iniciará tu proceso de solicitud para el uso de tu vale de consumo por:

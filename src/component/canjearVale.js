@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import Delivery from './delivery';
 class SeleccionarDelivery extends Component {
 
-
-
     dataClient = () => {
         const status =this.props.status;
         const {client, client_email, service, glosa} = this.props.client;
@@ -18,7 +16,6 @@ class SeleccionarDelivery extends Component {
             } else{
                 delivery = true
             }
-
 
         if (status === "OK") {
             return(
@@ -70,7 +67,6 @@ class SeleccionarDelivery extends Component {
         } 
 
         if(status === "ERROR"){
-
                 return(
                     <React.Fragment>
                         <div className="card-body scan__card--inner d-flex align-items-center">
@@ -82,7 +78,7 @@ class SeleccionarDelivery extends Component {
                                 <div className="col-12 px-0 pt-4">
                                     <div className="row">
                                         <div className="col-12">
-                                            <Link className="btn bg--green text-white btn-block" to="/" >Volver</Link>
+                                            <Link className="btn bg--green text-white btn-block" to="/canjedelivery" >Volver</Link>
                                         </div>
                                     </div>
                                         
@@ -91,7 +87,6 @@ class SeleccionarDelivery extends Component {
                         </div>
                     </React.Fragment>
                 )
-
         }
     }
 
