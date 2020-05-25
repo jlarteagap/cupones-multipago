@@ -9,13 +9,22 @@ class SeleccionarDelivery extends Component {
         const {client, client_email, service, glosa} = this.props.client;
         const deliverys = this.props.deliverys;
 
-        let delivery = false
+        let textDelivery
+        if(deliverys.length){
+            textDelivery = "Selecciona el servicio de DELIVERY a utilizar"
+        } else {
+            textDelivery = "El comercio actual no tiene el servicio de Delivery disponible"
+        }
 
-            if(this.props.delivery === "") {
-                delivery =  false
-            } else{
-                delivery = true
+        let delivery = false
+            if(this.props.delivery !== "") {
+                delivery =  true
             }
+
+        let selectDelivery 
+        if (deliverys.length  && delivery === false){
+            selectDelivery= <div className="scanError">Seleccione un servicio de Delivery</div>
+        }
 
         if (status === "OK") {
             return(
@@ -34,7 +43,7 @@ class SeleccionarDelivery extends Component {
                         </div>
                             <div className="col-12 mt-4 p-0">
                                 <div className="row">
-                                    <p className="font-weight-bold p-0 col-12">Selecciona el servicio de DELIVERY a utilizar</p>
+                                    <p className="font-weight-bold p-0 col-12">{textDelivery}</p>
                                     <div class="py-3 col-12">
                                         <div className="row">
                                             {Object.keys(deliverys).map(delivery => (
@@ -47,7 +56,7 @@ class SeleccionarDelivery extends Component {
                                         </div>
                                     </div>
 
-                                    {delivery ? ('') : (<div className="scanError">Seleccione un servicio de Delivery</div>)}
+                                    {selectDelivery}
                             </div>
                             <div className="col-12 px-0 pt-4">
                                 <div className="row">
