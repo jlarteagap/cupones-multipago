@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
-import ScanQr from './scanQR';
+import ScanQr from './Scan1/Scan';
 import ConfirmarPedido from './confirmar';
 import SeleccionarDelivery from './canjearVale';
 

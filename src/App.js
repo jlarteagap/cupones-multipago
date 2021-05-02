@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-
-
 import Router from './component/Router';
-
-import Home from './component/home'
+import Home from'./layout/Home'
+// import Home from './component/home'
 class App extends Component {
 
   state = {
@@ -113,26 +111,29 @@ class App extends Component {
    
   render(){
     return (
-      <div className={"container-fluid p-0 bg wrapper__scan min-vh-100 position-relative " + (this.state.steps.home ? ' ' : 'vh-100')}>
-        <main className="">
-          {this.state.steps.home ? (
-            <Router 
-              steps = {this.state.steps}
-              client = {this.state.client}
-              status = {this.state.status}
-              deliverys = {this.state.deliverys}
-              delivery = {this.state.delivery}
-              stepTwo = {this.stepTwo}
-              stepThree = {this.stepThree}
-              clickReset = {this.clickReset}
-              codeScaner = {this.codeScaner}
-              checkDelivery = {this.checkDelivery}
-              orderConfirm = {this.orderConfirm}
-              clickHome = {this.clickHome}
-              loading = {this.state.loading}
-            />) : (<Home homeState = {this.homeState} />)}
-        </main>
-      </div>
+      <>
+        <div className={"container-fluid p-0 bg wrapper__scan min-vh-100 position-relative " + (this.state.steps.home ? ' ' : 'vh-100')}>
+        <Home homeState = {this.homeState} />
+          <main className="">
+            {this.state.steps.home ? (
+              <Router 
+                steps = {this.state.steps}
+                client = {this.state.client}
+                status = {this.state.status}
+                deliverys = {this.state.deliverys}
+                delivery = {this.state.delivery}
+                stepTwo = {this.stepTwo}
+                stepThree = {this.stepThree}
+                clickReset = {this.clickReset}
+                codeScaner = {this.codeScaner}
+                checkDelivery = {this.checkDelivery}
+                orderConfirm = {this.orderConfirm}
+                clickHome = {this.clickHome}
+                loading = {this.state.loading}
+              />) : ''}
+          </main>
+        </div>
+      </>
     );
   }
 }
