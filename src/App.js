@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Routes from './routes/Routes'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Context 
+import AppContext from './context/AppContext'
+import useInitialState from './hook/useInitalState'
+
+const App = () => {
+  const initalState = useInitialState()
+  return(
+    <AppContext.Provider value={initalState}>
+       <div className={"container-fluid p-0 bg wrapper__scan min-vh-100 position-relative "}>
+         <Routes />
+       </div>
+    </AppContext.Provider>
+  )
 }
 
 export default App;

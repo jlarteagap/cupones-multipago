@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
+
+:root {
+    --scanGreen: #51E355;
+    --scanBlue: #196EB1;
+    --scanDark: #1E1F20;
+    --scanGray: #737E8A
+}
+
+@import 'colors';
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: var(--scanDark);
+    font-size: 15px;
+}
+
+.wrapper__scan{
+    @media (max-width: 768px){
+        padding: 0 !important;
+    }
+}
+
+.enfasis{
+    color: var(--scanGreen)
+}
+
+/* Button */
+.btn--canjea{
+    background: var(--scanGreen);
+    max-height: 80px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 27px;
+
+    @media (max-width: 768px){
+        font-size: 20px;
+
+        img{
+            height: 40px;
+        }
+    }
+} 
+
+/* modificadores*/
+.vh-100{
+    @media (max-width: 600px) {
+        height: auto !important;
+    }
+}
+.home--img{
+    position: absolute;
+    bottom: 0;
+    max-width: 85%;
+
+    @media (max-width: 600px) {
+        position: static;
+        margin-top: 2rem;
+    }
+}
+.home__text{
+    font-weight: 300;
+    font-family: 'Open Sans Condensed', sans-serif;
+
+    &--header{
+        font-size: 2.62rem;
+
+    }
+    &--p{
+        font-size: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        &--header{
+            font-size: 2rem;
+        }
+        &--p{
+            font-size: 1.6rem;
+        }
+        margin-top: 2rem;
+    }
+}
+
+/* fonts */
+
+.font--semibold{ font-weight: 600; }
+
+/* pasos */
+.step {
+    font-size: 30px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 300;
+
+    &--selected{
+        color: var(--scanGreen);
+    }
+    &--badge{
+        font-size: 100%;
+        font-weight: 300;
+        width: 50px !important;
+        height: 50px !important;
+
+        &--On{
+            background: var(--scanGreen);
+            border-radius: 50%;
+            color: white;
+        }
+    }
+
+    @media (max-width: 768px){
+        font-size: 1.6rem;
+        display: none;
+        
+        &--badge{
+            font-size: 70%;
+            width: 28px !important;
+            height: 28px !important;
+            margin-top: 10px;
+        }
+        &--selected{
+            display: block;
+        }
+    }
+
+}
+
+/* Scan QR*/
+.scanQr{
+    min-height: 300px;
+}
+.scanError{
+    font-size: 13px;
+    padding-top: 10px;
+    color: #FE4444
+}
+.scan__card{
+    padding-bottom: 2.5rem;
+    ;
+    &--inner{
+        min-height: 80vh;
+        border: none !important
+    }
+    @media (max-width: 768px){
+        padding-top: 2.5rem;
+        &--inner{
+            margin: 0;
+        } 
+    }
+}
+
+.bg{
+    background: url(../img/fondo.svg) no-repeat center center;
+    background-size: cover;
+}
+
+.footer{
+    bottom: 0;
+    background: #0C3461;
+    padding: 10px 0;
+    
+    img {
+        max-width: 150px;
+    }
+    @media (max-width: 768px){
+        img{
+            margin: 0 auto;
+            display: block;
+        }
+        .copy{
+            text-align: center !important;
+        }
+    }
+}
+
+.card-body h3 {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.delivery__btn{
+    padding: 0;
+
+    &:hover, &:focus, &:active, &:focus-within {
+        padding: 2px;
+        box-shadow: 0 0 0 3px rgba(42, 250, 0, 0.55);
+
+        img {
+            width: 108%;
+            height: auto;
+        }
+    }
+
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+  
+    position: relative;
+    margin: 100px auto;
+  }
+  
+  .double-bounce1, .double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #333;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+  }
+  
+  .double-bounce2 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+  }
+  
+  @-webkit-keyframes sk-bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+  }
+  
+  @keyframes sk-bounce {
+    0%, 100% { 
+      transform: scale(0.0);
+      -webkit-transform: scale(0.0);
+    } 50% { 
+      transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+    }
+  }
+
+.camaraMovil {
+    display: none;
+    @media (max-width: 768px){
+        display: block;
+    }
+}
